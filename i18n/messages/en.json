@@ -1,0 +1,308 @@
+{
+  "common": {
+    "brand": "Parrot Cargo",
+    "theme": "Theme",
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "gallery": "Gallery",
+    "blogs": "Blogs",
+    "contact": "Contact",
+    "requestQuote": "Request Quote"
+  },
+  "homeHero": {
+    "requestQuote": "Request Quote",
+    "slide1": {
+      "title": "Connecting Africa to the World Through Reliable Logistics",
+      "description": "Parrot Cargo & Logistics delivers fast, secure, and professional freight forwarding solutions across Africa, Asia, the Middle East, and global markets through air freight, sea freight, customs clearance, and project cargo services.",
+      "cardText": "Fast global cargo movement through trusted airline logistics networks."
+    },
+    "slide2": {
+      "title": "Reliable Sea Freight for Global Trade Routes",
+      "description": "Move containers, commercial cargo, and business shipments through dependable ocean freight solutions designed for international trade and regional distribution.",
+      "cardText": "Efficient sea freight services for businesses shipping across global markets."
+    },
+    "slide3": {
+      "title": "Secure Cargo Handling from Pickup to Delivery",
+      "description": "From cargo collection and warehousing to customs coordination and final delivery, Parrot Cargo keeps every shipment organized, visible, and protected.",
+      "cardText": "Professional cargo handling, storage, and delivery support for every shipment."
+    },
+    "stats": {
+      "since": "Since 2019",
+      "regions": "3+ Global Regions",
+      "routes": "4 Trade Routes",
+      "support": "24/7 Support",
+      "customs": "Fast Customs Processing",
+      "handling": "Secure Cargo Handling"
+    }
+  },
+  "homeAboutPreview": {
+    "eyebrow": "About Parrot Cargo",
+    "titleStart": "Professional Freight & Logistics Solutions Across",
+    "titleHighlight": "Global Markets",
+    "description": "Parrot Cargo & Logistics is a trusted clearing and forwarding company specializing in customs clearance, air freight, sea freight, and project cargo solutions. We help businesses move cargo safely, efficiently, and on time while maintaining international compliance standards.",
+    "cta": "Learn More",
+    "features": {
+      "fastCustoms": "Fast customs clearance",
+      "internationalNetwork": "International freight network",
+      "transparentOperations": "Transparent operations",
+      "professionalCoordination": "Professional logistics coordination",
+      "reliableMovement": "Reliable cargo movement"
+    },
+    "images": {
+      "seaCargo": "Cargo ship carrying containers at sea",
+      "warehouse": "Warehouse cargo boxes ready for shipment",
+      "airCargo": "Air freight cargo loading operation"
+    }
+  },
+  "homeServicesPreview": {
+    "eyebrow": "Our Services",
+    "title": "Comprehensive Logistics Solutions for Modern Businesses",
+    "carouselLabel": "Parrot Cargo services carousel",
+    "previous": "Previous service",
+    "next": "Next service",
+    "items": {
+      "airFreight": {
+        "title": "Air Freight Services",
+        "description": "Fast and secure air cargo solutions for urgent and time-sensitive international shipments with complete logistics coordination and customs support.",
+        "imageAlt": "Air cargo freight services"
+      },
+      "seaFreight": {
+        "title": "Sea Freight Services",
+        "description": "Reliable and cost-effective ocean freight solutions including FCL, LCL, cargo consolidation, and international shipping management.",
+        "imageAlt": "Sea freight logistics services"
+      },
+      "customsClearance": {
+        "title": "Customs Clearance",
+        "description": "Professional customs clearance support to help shipments move smoothly through international and local compliance requirements.",
+        "imageAlt": "Customs clearance cargo service"
+      },
+      "projectCargo": {
+        "title": "Project Cargo Handling",
+        "description": "Specialized cargo handling for complex, heavy, oversized, or high-value shipments requiring professional planning and coordination.",
+        "imageAlt": "Project cargo handling service"
+      }
+    }
+  },
+  "homeWhyParrot": {
+    "eyebrow": "Why Parrot Cargo?",
+    "title": "Built for Speed, Reliability & Global Trade",
+    "items": {
+      "globalNetwork": {
+        "title": "Global Logistics Network",
+        "description": "Strong operational connections across Africa, Asia, Europe, and the Middle East."
+      },
+      "fastCustoms": {
+        "title": "Fast Customs Clearance",
+        "description": "Efficient handling and processing to reduce delays and improve shipment speed."
+      },
+      "secureHandling": {
+        "title": "Secure Cargo Handling",
+        "description": "Professional cargo coordination ensuring safety and compliance throughout the journey."
+      },
+      "transparentPricing": {
+        "title": "Transparent Pricing",
+        "description": "Competitive and clear logistics pricing with no hidden operational surprises."
+      },
+      "experiencedTeam": {
+        "title": "Experienced Team",
+        "description": "Dedicated logistics professionals with expertise in international freight operations."
+      },
+      "customerSupport": {
+        "title": "Customer Support",
+        "description": "Reliable communication and support throughout every shipment process."
+      }
+    }
+  },
+  "homeIndustries": {
+    "eyebrow": "Industries We Serve",
+    "title": "Logistics Solutions Tailored for Diverse Industries",
+    "items": {
+      "construction": {
+        "title": "Construction & Heavy Equipment",
+        "description": "Transport solutions for construction materials and heavy machinery."
+      },
+      "retail": {
+        "title": "Retail & E-Commerce",
+        "description": "Fast logistics support for retail and online businesses."
+      },
+      "automotive": {
+        "title": "Automotive",
+        "description": "Reliable shipping for vehicles and automotive parts."
+      },
+      "manufacturing": {
+        "title": "Manufacturing",
+        "description": "Efficient cargo movement for industrial production needs."
+      },
+      "oilGas": {
+        "title": "Oil & Gas",
+        "description": "Specialized logistics for energy and industrial operations."
+      },
+      "industrialMachinery": {
+        "title": "Industrial Machinery",
+        "description": "Secure handling of heavy industrial equipment and machinery."
+      }
+    }
+  },
+  "homeHowItWorks": {
+    "eyebrow": "How It Works",
+    "title": "Simple, Efficient & Transparent Logistics Process",
+    "steps": {
+      "consultation": {
+        "title": "Consultation & Booking",
+        "description": "We analyze your cargo requirements and prepare the most efficient logistics plan."
+      },
+      "pickup": {
+        "title": "Cargo Pickup & Handling",
+        "description": "Safe cargo collection, warehousing, and shipment preparation."
+      },
+      "documentation": {
+        "title": "Documentation & Clearance",
+        "description": "Processing customs documents and ensuring full regulatory compliance."
+      },
+      "transportation": {
+        "title": "Air or Sea Transportation",
+        "description": "Secure international shipment through trusted logistics networks."
+      },
+      "delivery": {
+        "title": "Final Delivery",
+        "description": "Timely delivery to the final destination with operational transparency."
+      }
+    }
+  },
+  "homeTestimonials": {
+    "eyebrow": "Client Testimonials",
+    "title": "Trusted by Businesses Across International Markets",
+    "carouselLabel": "Client testimonials carousel",
+    "previous": "Previous testimonial",
+    "next": "Next testimonial",
+    "goTo": "Go to testimonial {number}",
+    "items": {
+      "sahra": {
+        "quote": "Parrot Cargo & Logistics has consistently delivered our shipments on time with excellent communication and smooth customs processing. Their professionalism and operational reliability make them a trusted logistics partner.",
+        "name": "Sahra Ibrahim",
+        "role": "Import Operations Manager"
+      },
+      "ahmed": {
+        "quote": "Their team handled our air freight requirements quickly and professionally. From documentation to final delivery, everything was clear, organized, and completed without unnecessary delays.",
+        "name": "Ahmed Mohamed",
+        "role": "Supply Chain Coordinator"
+      },
+      "li": {
+        "quote": "We rely on Parrot Cargo for shipments between China and East Africa. Their freight coordination, updates, and cargo handling have helped us serve customers with confidence.",
+        "name": "Li Wei",
+        "role": "Export Business Director"
+      },
+      "fatima": {
+        "quote": "Parrot Cargo understands the urgency of commercial shipments. Their support team is responsive, transparent, and always ready to help us move cargo safely across markets.",
+        "name": "Fatima Hassan",
+        "role": "Retail Logistics Lead"
+      }
+    }
+  },
+  "homeStats": {
+    "items": {
+      "experience": {
+        "label": "Years Experience"
+      },
+      "shipments": {
+        "label": "Shipments Delivered"
+      },
+      "regions": {
+        "label": "Global Regions Connected"
+      },
+      "support": {
+        "label": "Customer Support"
+      }
+    }
+  },
+  "homeInsights": {
+    "eyebrow": "Latest Insights",
+    "title": "Logistics News, Shipping Guides & Industry Insights",
+    "readMore": "Read more",
+    "featured": {
+      "title": "When Should You Choose Air Freight Over Sea Freight?",
+      "imageAlt": "Container port with cargo cranes and shipping containers at sunset"
+    },
+    "items": {
+      "seaFreight": {
+        "category": "Sea Freight",
+        "timeAgo": "5 minutes ago",
+        "dateTime": "2025-01-01",
+        "title": "Avoid costly delays by understanding the most common documentation and compliance mistakes businesses make during customs processing.",
+        "description": "Avoid costly delays by understanding the most common documentation and compliance mistakes businesses make during customs processing.",
+        "imageAlt": "Warehouse team handling cargo boxes"
+      },
+      "airFreight": {
+        "category": "Air Freight",
+        "timeAgo": "5 minutes ago",
+        "dateTime": "2025-01-01",
+        "title": "Understand the key differences in speed, cost, and delivery timelines to select the most efficient shipping method for your cargo.",
+        "description": "Understand the key differences in speed, cost, and delivery timelines to select the most efficient shipping method for your cargo.",
+        "imageAlt": "Logistics workers preparing warehouse cargo"
+      }
+    }
+  },
+  "sharedCta": {
+    "title": "Move Your Cargo with Confidence",
+    "description": "Partner with Parrot Cargo & Logistics for reliable international freight forwarding and professional logistics solutions.",
+    "cta": "Contact Our Team",
+    "imageAlt": "Air cargo loading operation at night"
+  },
+  "footer": {
+    "logoAlt": "Parrot Cargo logo",
+    "description": "Parrot Cargo & Logistics provides trusted freight forwarding, customs clearance, and international logistics solutions connecting Africa with global markets.",
+    "newsletter": {
+      "title": "Subscribe To Our Newsletter To Get Latest Update",
+      "emailLabel": "Email address",
+      "placeholder": "Enter your email",
+      "submit": "Subscribe"
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "items": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "industries": "Industries",
+        "contact": "Contact"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "items": {
+        "airFreight": "Air Freight",
+        "seaFreight": "Sea Freight",
+        "customClearance": "Custom Clearance",
+        "projectHandling": "Project Handling"
+      }
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "somalia": {
+        "title": "Somalia (HQ)",
+        "address": "Bakaro Market, Mogadishu, Somalia"
+      },
+      "china": {
+        "title": "Guangdong, Foshan City, China",
+        "address": "Guangdong, Foshan City, China"
+      }
+    },
+    "socials": {
+      "facebook": "Facebook",
+      "x": "X",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "© {year} Parrot Cargo & Logistics. All rights reserved."
+  }
+}

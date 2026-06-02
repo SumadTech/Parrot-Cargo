@@ -1,26 +1,330 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-media-card-overlay: var(--media-card-overlay);
+  --color-media-card-overlay-strong: var(--media-card-overlay-strong);
+  --color-media-card-overlay-soft: var(--media-card-overlay-soft);
+  --color-media-card-foreground: var(--media-card-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-heading: var(--heading);
+  --color-body: var(--body);
+  --color-stroke: var(--stroke);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+
+  --color-hero-overlay: var(--hero-overlay);
+  --color-hero-overlay-strong: var(--hero-overlay-strong);
+  --color-hero-overlay-soft: var(--hero-overlay-soft);
+
+  --color-blue-light: var(--blue-light);
+  --color-blue-light-hover: var(--blue-light-hover);
+  --color-blue-light-active: var(--blue-light-active);
+  --color-blue-normal: var(--blue-normal);
+  --color-blue-normal-hover: var(--blue-normal-hover);
+  --color-blue-normal-active: var(--blue-normal-active);
+  --color-blue-dark: var(--blue-dark);
+  --color-blue-dark-hover: var(--blue-dark-hover);
+  --color-blue-dark-active: var(--blue-dark-active);
+  --color-blue-darker: var(--blue-darker);
+
+  --color-orange-light: var(--orange-light);
+  --color-orange-light-hover: var(--orange-light-hover);
+  --color-orange-light-active: var(--orange-light-active);
+  --color-orange-normal: var(--orange-normal);
+  --color-orange-normal-hover: var(--orange-normal-hover);
+  --color-orange-normal-active: var(--orange-normal-active);
+  --color-orange-dark: var(--orange-dark);
+  --color-orange-dark-hover: var(--orange-dark-hover);
+  --color-orange-dark-active: var(--orange-dark-active);
+  --color-orange-darker: var(--orange-darker);
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-roboto);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: light;
+
+  --background: #f8fafc;
+  --foreground: #475569;
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  --primary: #04457f;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f6660d;
+  --secondary-foreground: #ffffff;
+
+  --muted: #edf4fa;
+  --muted-foreground: #94a3b8;
+
+  --accent: #edf4fa;
+  --accent-foreground: #04457f;
+
+  --destructive: #dc2626;
+
+  --border: #cbd5e1;
+  --input: #cbd5e1;
+  --ring: #04457f;
+
+  --heading: #0f172a;
+  --body: #475569;
+  --stroke: #e2e8f0;
+  --surface: #ffffff;
+  --surface-secondary: #edf4fa;
+
+  --media-card-overlay: rgb(15 23 42 / 0.42);
+  --media-card-overlay-strong: rgb(15 23 42 / 0.78);
+  --media-card-overlay-soft: rgb(15 23 42 / 0.12);
+  --media-card-foreground: #ffffff;
+  --hero-overlay: rgb(15 23 42 / 0.64);
+  --hero-overlay-strong: rgb(15 23 42 / 0.84);
+  --hero-overlay-soft: rgb(15 23 42 / 0.38);
+
+  --blue-light: #e6f0f8;
+  --blue-light-hover: #d9e9f5;
+  --blue-light-active: #b0d0e9;
+  --blue-normal: #04457f;
+  --blue-normal-hover: #043e72;
+  --blue-normal-active: #033766;
+  --blue-dark: #03345f;
+  --blue-dark-hover: #022a4c;
+  --blue-dark-active: #021f39;
+  --blue-darker: #01182c;
+
+  --orange-light: #fff0e7;
+  --orange-light-hover: #fee3d2;
+  --orange-light-active: #fcc5a1;
+  --orange-normal: #f6660d;
+  --orange-normal-hover: #dd5c0c;
+  --orange-normal-active: #c5520a;
+  --orange-dark: #b94d0a;
+  --orange-dark-hover: #943e08;
+  --orange-dark-active: #6f2e06;
+  --orange-darker: #572405;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --background: #071827;
+  --foreground: #cbd5e1;
+
+  --card: #0b2236;
+  --card-foreground: #f8fafc;
+
+  --popover: #0b2236;
+  --popover-foreground: #f8fafc;
+
+  --primary: #5ea8e6;
+  --primary-foreground: #06111d;
+
+  --secondary: #ff8a3d;
+  --secondary-foreground: #170a02;
+
+  --muted: #102b43;
+  --muted-foreground: #94a3b8;
+
+  --accent: #102b43;
+  --accent-foreground: #e6f0f8;
+
+  --destructive: #f87171;
+
+  --border: #1f3a52;
+  --input: #1f3a52;
+  --ring: #5ea8e6;
+
+  --heading: #f8fafc;
+  --body: #cbd5e1;
+  --stroke: #1f3a52;
+  --surface: #0b2236;
+  --surface-secondary: #102b43;
+
+  --media-card-overlay: rgb(15 23 42 / 0.42);
+  --media-card-overlay-strong: rgb(15 23 42 / 0.78);
+  --media-card-overlay-soft: rgb(15 23 42 / 0.12);
+  --media-card-foreground: #ffffff;
+
+  --hero-overlay: rgb(15 23 42 / 0.64);
+  --hero-overlay-strong: rgb(15 23 42 / 0.84);
+  --hero-overlay-soft: rgb(15 23 42 / 0.38);
+
+  --blue-light: #102b43;
+  --blue-light-hover: #153650;
+  --blue-light-active: #1f4c70;
+  --blue-normal: #5ea8e6;
+  --blue-normal-hover: #7bb9ed;
+  --blue-normal-active: #9bcaf2;
+  --blue-dark: #04457f;
+  --blue-dark-hover: #03345f;
+  --blue-dark-active: #022a4c;
+  --blue-darker: #01182c;
+
+  --orange-light: #3a1704;
+  --orange-light-hover: #572405;
+  --orange-light-active: #6f2e06;
+  --orange-normal: #ff8a3d;
+  --orange-normal-hover: #ffa366;
+  --orange-normal-active: #ffba8a;
+  --orange-dark: #f6660d;
+  --orange-dark-hover: #dd5c0c;
+  --orange-dark-active: #c5520a;
+  --orange-darker: #943e08;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply scroll-smooth font-sans;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply min-h-dvh overflow-x-hidden bg-background text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-semibold text-heading;
+  }
+
+  p {
+    @apply text-body;
+  }
+
+  a,
+  button {
+    @apply touch-manipulation;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  ::selection {
+    @apply bg-secondary text-secondary-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-heading-1 {
+    font-size: clamp(2.75rem, 8vw, 4.75rem);
+    line-height: 1.2;
+  }
+
+  .text-heading-2 {
+    font-size: clamp(2.25rem, 6vw, 3.8125rem);
+    line-height: 1.2;
+  }
+
+  .text-heading-3 {
+    font-size: clamp(1.875rem, 5vw, 3.0625rem);
+    line-height: 1.2;
+  }
+
+  .text-heading-4 {
+    font-size: clamp(1.5rem, 4vw, 2.4375rem);
+    line-height: 1.2;
+  }
+
+  .text-body-1 {
+    font-size: clamp(1.375rem, 3vw, 1.9375rem);
+    line-height: 1.2;
+  }
+
+  .text-body-2 {
+    font-size: clamp(1.125rem, 2.5vw, 1.5625rem);
+    line-height: 1.2;
+  }
+
+  .text-body-3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.2;
+  }
+
+  .text-caption-1 {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .text-caption-2 {
+    font-size: 0.8125rem;
+    line-height: 1.2;
+  }
+
+  .text-caption-3 {
+    font-size: 0.625rem;
+    line-height: 1.2;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-24;
+  }
+
+  .safe-x {
+    @apply w-full max-w-full min-w-0 overflow-x-hidden;
+  }
 }
