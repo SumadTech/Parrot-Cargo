@@ -31,7 +31,15 @@ export default async function ServiceDetailPage({
     <main>
       <PageHero
         title={t(`items.${service.key}.title`)}
-        description={t(`items.${service.key}.description`)}
+         breadcrumbs={[
+          {
+            label: t("breadcrumbs.home"),
+            href: "/",
+          },
+          {
+            label: t("breadcrumbs.services"),
+          },
+        ]}
         image={service.image}
       />
     </main>

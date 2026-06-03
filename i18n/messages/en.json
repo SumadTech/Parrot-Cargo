@@ -304,5 +304,164 @@
       "terms": "Terms of Service"
     },
     "copyright": "© {year} Parrot Cargo & Logistics. All rights reserved."
+  },
+  "aboutPage": {
+    "metadata": {
+      "title": "About Parrot Cargo | Freight Forwarding & Logistics Experts",
+      "description": "Learn about Parrot Cargo & Logistics, a trusted freight forwarding and logistics company providing customs clearance, air freight, sea freight, and project cargo solutions."
+    },
+    "hero": {
+      "title": "About Us"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "about": "About"
+    }
+  },
+  "aboutIntro": {
+    "badge": "EST. 2019",
+    "eyebrow": "Who We Are",
+    "titleStart": "Trusted Freight Forwarding & Logistics",
+    "titleHighlight": "Experts",
+    "description": "Parrot Cargo & Logistics is a leading clearing and forwarding company specializing in international freight movement, customs clearance, and project cargo solutions. With operational expertise and a strong logistics network, we ensure cargo reaches its destination safely, efficiently, and on schedule.",
+    "cta": "Request Quote",
+    "features": {
+      "internationalFreight": "International Freight Solutions",
+      "customsClearance": "Customs Clearance Specialists",
+      "airSeaExperts": "Air & Sea Cargo Experts",
+      "projectCargo": "Project Cargo Management",
+      "globalTradeSupport": "Global Trade Support"
+    },
+    "images": {
+      "ship": "Container cargo ship moving through the ocean",
+      "warehouse": "Cargo boxes stored inside a logistics warehouse",
+      "air": "Air freight cargo loading operation"
+    }
+  },
+  "aboutJourney": {
+    "eyebrow": "Our Journey",
+    "title": "Building Connections Between Global Markets and Africa",
+    "description": "Founded in 2019, Parrot Cargo & Logistics was established with a clear mission: to simplify international trade and logistics for businesses across Africa. Through dedication, professionalism, and a customer-first approach, we have grown into a trusted logistics partner serving clients across multiple industries and regions.",
+    "stats": {
+      "experience": "Years Experience",
+      "support": "Customer Support",
+      "shipments": "Shipments Delivered"
+    },
+    "cards": {
+      "mission": {
+        "title": "Our Mission",
+        "description": "To be a leading logistics service provider connecting global markets to Africa, including remote and emerging cities, through reliable, efficient, and customer-focused logistics solutions."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "description": "To become a market leader and trendsetter in the logistics industry by delivering innovative, high-quality, and internationally recognized logistics services."
+      }
+    },
+    "images": {
+      "warehouse": "Cargo boxes inside a logistics warehouse",
+      "air": "Air cargo loading operation",
+      "ship": "Container ship moving through a port"
+    }
+  },
+
+  "aboutValues": {
+    "eyebrow": "Our Values",
+    "title": "The Principles That Drive Every Shipment",
+    "items": {
+      "integrity": {
+        "title": "Integrity",
+        "description": "Operating with honesty, transparency, and accountability."
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "Delivering consistent logistics solutions clients can depend on."
+      },
+      "efficiency": {
+        "title": "Efficiency",
+        "description": "Optimizing every shipment for speed and accuracy."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "Maintaining high standards across all operations."
+      },
+      "customerFocus": {
+        "title": "Customer Focus",
+        "description": "Building long-term partnerships through exceptional service."
+      },
+      "compliance": {
+        "title": "Compliance",
+        "description": "Ensuring full adherence to international trade regulations."
+      }
+    }
+  },
+  "aboutTeam": {
+    "eyebrow": "Our Leadership",
+    "title": "Meet the Professionals Behind Every Successful Shipment",
+    "members": {
+      "ali": {
+        "name": "Ali Mohamed",
+        "role": "Chief Financial Officer",
+        "bio": "Leading the company's financial strategy, budgeting, and growth initiatives while ensuring financial stability, operational efficiency, and sustainable business expansion. Plays a key role in supporting strategic decision-making and driving long-term business success.",
+        "imageAlt": "Ali Mohamed, Chief Financial Officer"
+      },
+      "mohamed": {
+        "name": "Ali Mohamed",
+        "role": "Chief Financial Officer",
+        "bio": "Leading financial strategy and supporting sustainable logistics growth.",
+        "imageAlt": "Ali Mohamed smiling in an office environment"
+      },
+      "hassan": {
+        "name": "Ali Mohamed",
+        "role": "Chief Financial Officer",
+        "bio": "Supporting operational growth and customer-focused logistics excellence.",
+        "imageAlt": "Ali Mohamed smiling in an office environment"
+      }
+    },
+    "socials": {
+      "facebook": "{name} on Facebook",
+      "instagram": "{name} on Instagram",
+      "x": "{name} on X",
+      "linkedin": "{name} on LinkedIn"
+    }
+  },
+  "servicesPage": {
+    "metadata": {
+      "title": "Services | Parrot Cargo & Logistics",
+      "description": "Explore Parrot Cargo & Logistics services including air freight, sea freight, customs clearance, project cargo handling, warehousing, and transport solutions."
+    },
+    "hero": {
+      "title": "Services"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "services": "Services"
+    },
+    "section": {
+      "eyebrow": "Our Services",
+      "title": "Complete Freight & Logistics Solutions",
+      "description": "Explore reliable cargo services designed to move shipments safely, efficiently, and on time across local and international markets."
+    },
+    "items": {
+      "airFreight": {
+        "title": "Air Freight Services",
+        "description": "Fast and secure air cargo solutions for urgent and time-sensitive international shipments with complete logistics coordination and customs support.",
+        "imageAlt": "Air cargo freight services"
+      },
+      "seaFreight": {
+        "title": "Sea Freight Services",
+        "description": "Reliable and cost-effective ocean freight solutions including FCL, LCL, cargo consolidation, and international shipping management.",
+        "imageAlt": "Sea freight logistics services"
+      },
+      "customsClearance": {
+        "title": "Customs Clearance",
+        "description": "Professional customs clearance support to help shipments move smoothly through international and local compliance requirements.",
+        "imageAlt": "Customs clearance cargo service"
+      },
+      "projectCargo": {
+        "title": "Project Cargo Handling",
+        "description": "Specialized cargo handling for complex, heavy, oversized, or high-value shipments requiring professional planning and coordination.",
+        "imageAlt": "Project cargo handling service"
+      }
+    }
   }
 }

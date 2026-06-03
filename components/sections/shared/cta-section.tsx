@@ -21,7 +21,7 @@ export function CtaSection() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-media-card-overlay" />
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="absolute inset-0 bg-primary/40" />
       </div>
 
       <Container className="relative z-10">
