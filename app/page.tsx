@@ -18,7 +18,6 @@ export default function Home() {
       <WhyParrotSection />
       <IndustriesSection />
       <HowItWorksSection />
-      <InsightsSection />
       <TestimonialsSection />
       <StatsSection />
       <InsightsSection />
