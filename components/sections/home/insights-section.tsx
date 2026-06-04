@@ -37,9 +37,8 @@ export function InsightsSection() {
           <MotionWrapper>
             <Link
               href={featuredInsight.href}
-              className="group block h-full rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <article className="relative min-h-80 overflow-hidden rounded-lg border border-stroke bg-card shadow-sm sm:min-h-97.5 lg:min-h-100">
+              className="group block h-full rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+              <article className="relative min-h-80 overflow-hidden rounded-sm border border-stroke bg-card shadow-sm sm:min-h-97.5 lg:min-h-100">
                 <Image
                   src={featuredInsight.image}
                   alt={t("featured.imageAlt")}
@@ -91,9 +90,8 @@ export function InsightsSection() {
                   <Link
                     key={item.key}
                     href={item.href}
-                    className="group block rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
-                    <article className="grid grid-cols-1 gap-4 rounded-lg transition-transform duration-300 group-hover:-translate-y-1 sm:grid-cols-[minmax(0,1fr)_150px] sm:items-center lg:grid-cols-[minmax(0,1fr)_160px]">
+                    className="group block rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                    <article className="grid grid-cols-1 gap-4 rounded-sm transition-transform duration-300 group-hover:-translate-y-1 sm:grid-cols-[minmax(0,1fr)_150px] sm:items-center lg:grid-cols-[minmax(0,1fr)_160px]">
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2 text-caption-2 text-body">
                           <span className="font-semibold text-heading">

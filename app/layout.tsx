@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
+import { FloatingWhatsApp } from "@/components/common/floating-whatsapp";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,13 +44,13 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${inter.variable} ${roboto.variable}`}
-    >
+      className={`${inter.variable} ${roboto.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <SiteHeader />
             {children}
+            <FloatingWhatsApp />
             <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>

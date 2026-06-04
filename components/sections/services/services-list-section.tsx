@@ -34,9 +34,8 @@ export function ServicesListSection() {
             <MotionWrapper key={service.slug} delay={index * 0.06}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group block h-full rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                <article className="relative min-h-80 overflow-hidden rounded-lg border border-stroke bg-card shadow-sm transition-transform duration-300 group-hover:-translate-y-1 sm:min-h-90 lg:min-h-95">
+                className="group block h-full rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                <article className="relative min-h-80 overflow-hidden rounded-sm border border-stroke bg-card shadow-sm transition-transform duration-300 group-hover:-translate-y-1 sm:min-h-90 lg:min-h-95">
                   <Image
                     src={service.image}
                     alt={t(`items.${service.key}.imageAlt`)}

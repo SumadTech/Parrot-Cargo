@@ -14,22 +14,22 @@ const testimonials = [
   {
     key: "sahra",
     initials: "SI",
-    image: testimonialImage
+    image: testimonialImage,
   },
   {
     key: "ahmed",
     initials: "AM",
-    image: testimonialImage
+    image: testimonialImage,
   },
   {
     key: "li",
     initials: "LW",
-    image: testimonialImage
+    image: testimonialImage,
   },
   {
     key: "fatima",
     initials: "FH",
-    image: testimonialImage
+    image: testimonialImage,
   },
 ] as const;
 
@@ -83,16 +83,14 @@ export function TestimonialsSection() {
         <MotionWrapper delay={0.12} className="mt-8">
           <div
             className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-1 pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden"
-            aria-label={t("carouselLabel")}
-          >
+            aria-label={t("carouselLabel")}>
             {testimonials.map((testimonial, index) => (
               <article
                 key={testimonial.key}
                 ref={(node) => {
                   cardRefs.current[index] = node;
                 }}
-                className="w-[86vw] shrink-0 snap-center rounded-lg border border-stroke bg-surface-secondary p-5 sm:w-170 sm:p-7 lg:w-190"
-              >
+                className="w-[86vw] shrink-0 snap-center rounded-sm border border-stroke bg-surface-secondary p-5 sm:w-170 sm:p-7 lg:w-190">
                 <div className="flex items-center gap-1 text-secondary">
                   {Array.from({ length: 5 }).map((_, starIndex) => (
                     <FaStar
@@ -131,8 +129,7 @@ export function TestimonialsSection() {
               type="button"
               aria-label={t("previous")}
               onClick={goPrevious}
-              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
+              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               <ArrowLeft className="size-5 rtl:rotate-180" />
             </button>
 
@@ -157,8 +154,7 @@ export function TestimonialsSection() {
               type="button"
               aria-label={t("next")}
               onClick={goNext}
-              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
+              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               <ArrowRight className="size-5 rtl:rotate-180" />
             </button>
           </div>

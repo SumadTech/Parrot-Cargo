@@ -1,11 +1,11 @@
 "use client";
 
+import { QuoteButton } from "@/components/common/quote-button";
 import { homeHeroSlides } from "@/data/home-hero-slides";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 const AUTO_SLIDE_DELAY = 3000;
@@ -51,8 +51,7 @@ export function HomeHero() {
           animate={{ opacity: 1, scale: 1 }}
           exit={shouldReduceMotion ? undefined : { opacity: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0"
-        >
+          className="absolute inset-0">
           <Image
             src={activeSlide.image}
             alt=""
@@ -76,8 +75,7 @@ export function HomeHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={shouldReduceMotion ? undefined : { opacity: 0, y: -12 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-4xl"
-            >
+              className="max-w-4xl">
               <h1 className="text-heading-1 text-white">
                 {t(activeSlide.titleKey)}
               </h1>
@@ -87,15 +85,12 @@ export function HomeHero() {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link
+                <QuoteButton
                   href="/contact"
-                  className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-card px-6 text-caption-1 font-semibold text-heading transition-colors hover:bg-card/90 sm:w-auto"
-                >
+                  variant="light"
+                  className="w-full sm:w-auto">
                   {t("requestQuote")}
-                  <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                    <ArrowUpRight className="size-4" />
-                  </span>
-                </Link>
+                </QuoteButton>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -104,8 +99,7 @@ export function HomeHero() {
             initial={shouldReduceMotion ? false : { opacity: 0, x: 24 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full max-w-sm justify-self-start rounded-lg bg-card p-4 text-heading  lg:justify-self-end"
-          >
+            className="w-full max-w-xs justify-self-start rounded-sm bg-card p-4 text-heading  lg:justify-self-end">
             <div className="flex items-center justify-between gap-4">
               <span className="text-caption-1 font-medium text-body">
                 {slideNumber}/{String(totalSlides).padStart(2, "0")}
@@ -116,8 +110,7 @@ export function HomeHero() {
                   type="button"
                   aria-label="Previous hero slide"
                   onClick={goToPrevious}
-                  className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-blue-normal-hover"
-                >
+                  className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-blue-normal-hover">
                   <ArrowLeft className="size-4" />
                 </button>
 
@@ -125,8 +118,7 @@ export function HomeHero() {
                   type="button"
                   aria-label="Next hero slide"
                   onClick={goToNext}
-                  className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-blue-normal-hover"
-                >
+                  className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-blue-normal-hover">
                   <ArrowRight className="size-4" />
                 </button>
               </div>
@@ -138,13 +130,12 @@ export function HomeHero() {
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={shouldReduceMotion ? undefined : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.35 }}
-              >
+                transition={{ duration: 0.35 }}>
                 <p className="mt-6 text-body-3 font-medium text-heading">
                   {t(activeSlide.cardTextKey)}
                 </p>
 
-                <div className="relative mt-5 aspect-4/3 overflow-hidden rounded-lg">
+                <div className="relative mt-5 aspect-4/3 overflow-hidden rounded-sm">
                   <Image
                     src={activeSlide.cardImage}
                     alt=""

@@ -17,15 +17,7 @@ export const navigationItems: NavItem[] = [
     href: "/services",
   },
   {
-    labelKey: "gallery",
-    href: "/gallery",
-  },
-  {
     labelKey: "blogs",
     href: "/blogs",
-  },
-  {
-    labelKey: "contact",
-    href: "/contact",
-  },
+  }
 ];

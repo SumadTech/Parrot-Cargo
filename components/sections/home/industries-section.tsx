@@ -50,16 +50,14 @@ export function IndustriesSection() {
               {t("eyebrow")}
             </p>
 
-            <h2 className="mt-3 text-heading-3 text-heading">
-              {t("title")}
-            </h2>
+            <h2 className="mt-3 text-heading-3 text-heading">{t("title")}</h2>
           </div>
         </MotionWrapper>
 
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {industryItems.map(({ key, Icon }, index) => (
             <MotionWrapper key={key} delay={index * 0.05}>
-              <article className="group h-full rounded-lg border border-stroke bg-surface-secondary p-5 transition-transform duration-300 hover:-translate-y-1">
+              <article className="group h-full rounded-sm border border-stroke bg-surface-secondary p-5 transition-transform duration-300 hover:-translate-y-1">
                 <div className="grid size-14 place-items-center rounded-full bg-primary text-primary-foreground transition-colors duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
                   <Icon className="size-7" aria-hidden="true" />
                 </div>

@@ -6,11 +6,11 @@ import { TopHeader } from "@/components/layout/top-header";
 import { navigationItems } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import logo from "@/public/images/logo.png";
-import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { QuoteButton } from "../common/quote-button";
 import { ThemeToggle } from "../common/theme-toggle";
 
 export function SiteHeader() {
@@ -87,19 +87,11 @@ export function SiteHeader() {
 
             <ThemeToggle />
 
-            <Link
+            <QuoteButton
               href="/contact"
-              className={cn(
-                "inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-5 text-caption-1 font-semibold transition-colors",
-                isScrolled
-                  ? "bg-primary text-primary-foreground hover:bg-blue-normal-hover"
-                  : "bg-card text-heading hover:bg-card/90",
-              )}>
+              variant={isScrolled ? "primary" : "light"}>
               {t("requestQuote")}
-              <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <ArrowUpRight className="size-4" />
-              </span>
-            </Link>
+            </QuoteButton>
           </div>
 
           <MobileNav isScrolled={isScrolled} />

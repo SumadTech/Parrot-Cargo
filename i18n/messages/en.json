@@ -13,10 +13,10 @@
     "gallery": "Gallery",
     "blogs": "Blogs",
     "contact": "Contact",
-    "requestQuote": "Request Quote"
+    "requestQuote": "Contact"
   },
   "homeHero": {
-    "requestQuote": "Request Quote",
+    "requestQuote": "Contact",
     "slide1": {
       "title": "Connecting Africa to the World Through Reliable Logistics",
       "description": "Parrot Cargo & Logistics delivers fast, secure, and professional freight forwarding solutions across Africa, Asia, the Middle East, and global markets through air freight, sea freight, customs clearance, and project cargo services.",
@@ -270,6 +270,7 @@
         "about": "About",
         "services": "Services",
         "industries": "Industries",
+        "Gallery": "Gallery",
         "contact": "Contact"
       }
     },
@@ -301,7 +302,7 @@
     },
     "legal": {
       "privacy": "Privacy Policy",
-      "terms": "Terms of Service"
+      "terms": "Terms and Conditions"
     },
     "copyright": "© {year} Parrot Cargo & Logistics. All rights reserved."
   },
@@ -324,7 +325,7 @@
     "titleStart": "Trusted Freight Forwarding & Logistics",
     "titleHighlight": "Experts",
     "description": "Parrot Cargo & Logistics is a leading clearing and forwarding company specializing in international freight movement, customs clearance, and project cargo solutions. With operational expertise and a strong logistics network, we ensure cargo reaches its destination safely, efficiently, and on schedule.",
-    "cta": "Request Quote",
+    "cta": "Requ",
     "features": {
       "internationalFreight": "International Freight Solutions",
       "customsClearance": "Customs Clearance Specialists",
@@ -462,6 +463,757 @@
         "description": "Specialized cargo handling for complex, heavy, oversized, or high-value shipments requiring professional planning and coordination.",
         "imageAlt": "Project cargo handling service"
       }
+    }
+  },
+
+  "serviceDetails": {
+    "relatedServices": "Related Services",
+    "airFreight": {
+      "metadata": {
+        "title": "Air Freight Services | Parrot Cargo & Logistics",
+        "description": "Fast and secure air freight services for urgent, time-sensitive international shipments with customs and logistics coordination."
+      },
+      "overview": {
+        "eyebrow": "Service Overview",
+        "title": "Reliable Air Freight for Time-Critical Shipments",
+        "description": "Our air freight solutions are designed for businesses that require speed, security, and operational efficiency. Through trusted airline partnerships and global logistics networks, we ensure your cargo reaches its destination quickly and safely.",
+        "items": {
+          "internationalImportExport": "International Import & Export",
+          "priorityCargoHandling": "Priority Cargo Handling",
+          "airportCoordination": "Airport Coordination",
+          "customsDocumentation": "Customs Documentation",
+          "shipmentMonitoring": "Shipment Monitoring"
+        }
+      },
+      "benefits": {
+        "eyebrow": "Why Air Freight?",
+        "title": "Benefits That Keep Your Supply Chain Moving",
+        "items": {
+          "fastDeliveryTimes": {
+            "title": "Fast Delivery Times",
+            "description": "Minimize transit times and meet urgent deadlines."
+          },
+          "globalAirlineNetwork": {
+            "title": "Global Airline Network",
+            "description": "Access major international destinations through trusted partners."
+          },
+          "secureCargoHandling": {
+            "title": "Secure Cargo Handling",
+            "description": "Professional cargo management throughout transit."
+          },
+          "realTimeCoordination": {
+            "title": "Real-Time Coordination",
+            "description": "Continuous shipment visibility and communication."
+          },
+          "importExportSupport": {
+            "title": "Import & Export Support",
+            "description": "End-to-end logistics support for international trade."
+          },
+          "reliableOperations": {
+            "title": "Reliable Operations",
+            "description": "Consistent service backed by experienced logistics professionals."
+          }
+        }
+      },
+      "workflow": {
+        "eyebrow": "How It Works",
+        "title": "Simple & Efficient Freight Workflow",
+        "steps": {
+          "cargoBooking": {
+            "title": "Cargo Booking",
+            "description": "Schedule and confirm shipment requirements."
+          },
+          "documentation": {
+            "title": "Documentation",
+            "description": "Prepare all required freight and customs documents."
+          },
+          "customsClearance": {
+            "title": "Customs Clearance",
+            "description": "Ensure compliance and fast cargo processing."
+          },
+          "airTransportation": {
+            "title": "Air Transportation",
+            "description": "Cargo moves through secure airline networks."
+          },
+          "finalDelivery": {
+            "title": "Final Delivery",
+            "description": "Shipment reaches destination safely and on time."
+          }
+        }
+      },
+      "industries": {
+        "eyebrow": "Industries",
+        "title": "Supporting Diverse Business Sectors",
+        "items": {
+          "retail": "Retail",
+          "electronics": "Electronics",
+          "automotive": "Automotive",
+          "manufacturing": "Manufacturing",
+          "healthcare": "Healthcare",
+          "eCommerce": "E-Commerce"
+        }
+      }
+    },
+    "seaFreight": {
+      "metadata": {
+        "title": "Sea Freight Services | Parrot Cargo & Logistics",
+        "description": "Reliable sea freight services for global trade, container shipping, cargo consolidation, customs coordination, and shipment visibility."
+      },
+      "overview": {
+        "eyebrow": "Service Overview",
+        "title": "Global Ocean Freight Built for Modern Trade",
+        "description": "Our sea freight solutions provide businesses with reliable access to global markets through comprehensive ocean transportation services. We manage every stage of the shipping process, from cargo handling and documentation to customs clearance and final delivery.",
+        "items": {
+          "fclLclShipping": "FCL & LCL Shipping",
+          "cargoConsolidation": "Cargo Consolidation",
+          "portToPortServices": "Port-to-Port Services",
+          "customsCoordination": "Customs Coordination",
+          "shipmentVisibility": "Shipment Visibility"
+        }
+      },
+      "benefits": {
+        "eyebrow": "Why Sea Freight?",
+        "title": "Smart Shipping for Large-Volume Cargo",
+        "items": {
+          "costEffectiveTransportation": {
+            "title": "Cost-Effective Transportation",
+            "description": "Reduce logistics costs for high-volume shipments."
+          },
+          "globalShippingNetwork": {
+            "title": "Global Shipping Network",
+            "description": "Access major international ports worldwide."
+          },
+          "flexibleContainerOptions": {
+            "title": "Flexible Container Options",
+            "description": "Choose Full Container Load or Less than Container Load."
+          },
+          "cargoConsolidation": {
+            "title": "Cargo Consolidation",
+            "description": "Optimize shipping costs through efficient consolidation."
+          },
+          "secureCargoHandling": {
+            "title": "Secure Cargo Handling",
+            "description": "Professional cargo management throughout transit."
+          },
+          "reliableTransitPlanning": {
+            "title": "Reliable Transit Planning",
+            "description": "Structured shipping schedules and route planning."
+          }
+        }
+      },
+      "workflow": {
+        "eyebrow": "How It Works",
+        "title": "Simple & Efficient Freight Workflow",
+        "steps": {
+          "cargoCollection": {
+            "title": "Cargo Collection",
+            "description": "We receive and prepare cargo for shipment."
+          },
+          "containerLoading": {
+            "title": "Container Loading",
+            "description": "Cargo is securely packed and loaded."
+          },
+          "documentation": {
+            "title": "Documentation",
+            "description": "Shipping documents are prepared and verified."
+          },
+          "oceanTransportation": {
+            "title": "Ocean Transportation",
+            "description": "Cargo moves through trusted shipping routes."
+          },
+          "finalDelivery": {
+            "title": "Final Delivery",
+            "description": "Shipment arrives safely at its destination."
+          }
+        }
+      },
+      "industries": {
+        "eyebrow": "Industries",
+        "title": "Supporting Global Supply Chains",
+        "items": {
+          "construction": "Construction",
+          "manufacturing": "Manufacturing",
+          "heavyEquipment": "Heavy Equipment",
+          "industrialMachinery": "Industrial Machinery",
+          "retailDistribution": "Retail Distribution",
+          "wholesaleTrade": "Wholesale Trade"
+        }
+      }
+    },
+    "customsClearance": {
+      "metadata": {
+        "title": "Customs Clearance | Parrot Cargo & Logistics",
+        "description": "Professional customs clearance services for import, export, documentation, duty processing, regulatory compliance, and cargo release."
+      },
+      "overview": {
+        "eyebrow": "Service Overview",
+        "title": "Keeping Cargo Moving Across Borders",
+        "description": "Our customs clearance experts manage documentation, duties, inspections, and regulatory compliance, helping businesses avoid delays and maintain smooth international trade operations.",
+        "items": {
+          "importClearance": "Import Clearance",
+          "exportClearance": "Export Clearance",
+          "regulatoryCompliance": "Regulatory Compliance",
+          "dutyProcessing": "Duty Processing",
+          "documentationManagement": "Documentation Management"
+        }
+      },
+      "benefits": {
+        "eyebrow": "Why Custom Clearance?",
+        "title": "Simplifying Complex Customs Procedures",
+        "items": {
+          "fasterCargoRelease": {
+            "title": "Faster Cargo Release",
+            "description": "Reduce unnecessary customs delays."
+          },
+          "complianceAssurance": {
+            "title": "Compliance Assurance",
+            "description": "Meet international trade regulations."
+          },
+          "documentationAccuracy": {
+            "title": "Documentation Accuracy",
+            "description": "Minimize errors and processing issues."
+          },
+          "reducedOperationalRisks": {
+            "title": "Reduced Operational Risks",
+            "description": "Avoid penalties and disruptions."
+          },
+          "expertCustomsGuidance": {
+            "title": "Expert Customs Guidance",
+            "description": "Receive support from experienced specialists."
+          },
+          "endToEndSupport": {
+            "title": "End-to-End Support",
+            "description": "Comprehensive customs management services."
+          }
+        }
+      },
+      "workflow": {
+        "eyebrow": "How It Works",
+        "title": "Simple & Efficient Freight Workflow",
+        "steps": {
+          "documentReview": {
+            "title": "Document Review",
+            "description": "Analyze shipment and compliance requirements."
+          },
+          "customsPreparation": {
+            "title": "Customs Preparation",
+            "description": "Prepare declarations and documentation."
+          },
+          "submissionProcessing": {
+            "title": "Submission & Processing",
+            "description": "Submit documentation to relevant authorities."
+          },
+          "inspectionCoordination": {
+            "title": "Inspection Coordination",
+            "description": "Manage customs inspections when required."
+          },
+          "cargoRelease": {
+            "title": "Cargo Release",
+            "description": "Clear cargo for transportation and delivery."
+          }
+        }
+      },
+      "industries": {
+        "eyebrow": "Industries",
+        "title": "Supporting Diverse Business Sectors",
+        "items": {
+          "retail": "Retail",
+          "automotive": "Automotive",
+          "manufacturing": "Manufacturing",
+          "electronics": "Electronics",
+          "oilGas": "Oil & Gas",
+          "industrialEquipment": "Industrial Equipment"
+        }
+      }
+    },
+    "projectCargo": {
+      "metadata": {
+        "title": "Project Cargo Handling | Parrot Cargo & Logistics",
+        "description": "Specialized project cargo handling for heavy, oversized, complex, and high-value shipments requiring planning, route analysis, and coordination."
+      },
+      "overview": {
+        "eyebrow": "Service Overview",
+        "title": "Complex Logistics Managed with Precision",
+        "description": "Our project cargo team specializes in transporting oversized and heavy cargo that requires customized logistics planning, route analysis, specialized equipment, and regulatory coordination.",
+        "items": {
+          "heavyLiftCargo": "Heavy Lift Cargo",
+          "routePlanning": "Route Planning",
+          "siteCoordination": "Site Coordination",
+          "specializedTransportation": "Specialized Transportation",
+          "customsComplianceSupport": "Customs & Compliance Support"
+        }
+      },
+      "benefits": {
+        "eyebrow": "Why Project Cargo?",
+        "title": "Benefits That Keep Your Supply Chain Moving",
+        "items": {
+          "specializedPlanning": {
+            "title": "Specialized Planning",
+            "description": "Customized logistics strategies for every project."
+          },
+          "heavyCargoExpertise": {
+            "title": "Heavy Cargo Expertise",
+            "description": "Handling oversized and high-value shipments."
+          },
+          "routeOptimization": {
+            "title": "Route Optimization",
+            "description": "Detailed transportation route analysis."
+          },
+          "riskManagement": {
+            "title": "Risk Management",
+            "description": "Identify and mitigate project risks."
+          },
+          "regulatoryCoordination": {
+            "title": "Regulatory Coordination",
+            "description": "Work with relevant authorities and stakeholders."
+          },
+          "endToEndProjectControl": {
+            "title": "End-to-End Project Control",
+            "description": "Full visibility from planning to delivery."
+          }
+        }
+      },
+      "workflow": {
+        "eyebrow": "How It Works",
+        "title": "Simple & Efficient Freight Workflow",
+        "steps": {
+          "projectAssessment": {
+            "title": "Project Assessment",
+            "description": "Evaluate cargo dimensions and requirements."
+          },
+          "routePlanning": {
+            "title": "Route Planning",
+            "description": "Design the safest and most efficient route."
+          },
+          "cargoPreparation": {
+            "title": "Cargo Preparation",
+            "description": "Prepare equipment and handling procedures."
+          },
+          "specializedTransportation": {
+            "title": "Specialized Transportation",
+            "description": "Move cargo using suitable transport solutions."
+          },
+          "siteDelivery": {
+            "title": "Site Delivery",
+            "description": "Complete final delivery and project handover."
+          }
+        }
+      },
+      "industries": {
+        "eyebrow": "Industries",
+        "title": "Supporting Diverse Business Sectors",
+        "items": {
+          "oilGas": "Oil & Gas",
+          "construction": "Construction",
+          "infrastructure": "Infrastructure",
+          "energy": "Energy",
+          "industrialManufacturing": "Industrial Manufacturing",
+          "mining": "Mining"
+        }
+      }
+    }
+  },
+  "legalPages": {
+    "privacyPolicy": {
+      "metadata": {
+        "title": "Privacy Policy | Parrot Cargo & Logistics",
+        "description": "Read the Parrot Cargo & Logistics privacy policy to understand how we collect, use, store, and protect your information."
+      },
+      "hero": {
+        "title": "Privacy Policy"
+      },
+      "breadcrumbs": {
+        "home": "Home",
+        "current": "Privacy Policy"
+      },
+      "navLabel": "Privacy policy sections",
+      "sections": {
+        "introduction": {
+          "title": "Introduction",
+          "blocks": {
+            "main": {
+              "description": "Parrot Cargo & Logistics respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and safeguard your information when you use our website and services."
+            }
+          }
+        },
+        "informationWeCollect": {
+          "title": "Information We Collect",
+          "blocks": {
+            "personalInformation": {
+              "title": "Personal Information",
+              "description": "We may collect the following information:",
+              "items": {
+                "fullName": "Full Name",
+                "emailAddress": "Email Address",
+                "phoneNumber": "Phone Number",
+                "companyName": "Company Name",
+                "countryLocation": "Country and Location Information"
+              }
+            },
+            "shipmentInformation": {
+              "title": "Shipment Information",
+              "items": {
+                "cargoDetails": "Cargo Details",
+                "shipmentOriginDestination": "Shipment Origin and Destination",
+                "freightRequirements": "Freight Requirements",
+                "customsDocumentation": "Customs Documentation"
+              }
+            },
+            "technicalInformation": {
+              "title": "Technical Information",
+              "items": {
+                "ipAddress": "IP Address",
+                "browserType": "Browser Type",
+                "deviceInformation": "Device Information",
+                "websiteUsageData": "Website Usage Data"
+              }
+            }
+          }
+        },
+        "howWeUseInformation": {
+          "title": "How We Use Your Information",
+          "blocks": {
+            "main": {
+              "description": "We use collected information to:",
+              "items": {
+                "processQuoteRequests": "Process quote requests.",
+                "manageLogisticsServices": "Manage logistics services.",
+                "provideCustomerSupport": "Provide customer support.",
+                "improveWebsitePerformance": "Improve website performance.",
+                "communicateShipmentUpdates": "Communicate shipment updates.",
+                "complyWithLegalObligations": "Comply with legal obligations."
+              }
+            }
+          }
+        },
+        "informationSharing": {
+          "title": "Information Sharing",
+          "blocks": {
+            "main": {
+              "description": "Parrot Cargo & Logistics does not sell personal information. Information may be shared with:",
+              "items": {
+                "freightCarriers": "Freight carriers.",
+                "customsAuthorities": "Customs authorities.",
+                "logisticsPartners": "Logistics partners.",
+                "governmentAgencies": "Government agencies when required by law."
+              },
+              "paragraphs": {
+                "note": "Only information necessary for service delivery is shared."
+              }
+            }
+          }
+        },
+        "dataSecurity": {
+          "title": "Data Security",
+          "blocks": {
+            "main": {
+              "description": "We implement reasonable technical and organizational measures to protect personal information against unauthorized access, disclosure, alteration, or destruction."
+            }
+          }
+        },
+        "cookies": {
+          "title": "Cookies & Tracking Technologies",
+          "blocks": {
+            "main": {
+              "description": "Our website may use cookies to:",
+              "items": {
+                "improveExperience": "Improve user experience.",
+                "analyzeTraffic": "Analyze website traffic.",
+                "rememberPreferences": "Remember user preferences.",
+                "enhanceFunctionality": "Enhance website functionality."
+              },
+              "paragraphs": {
+                "disable": "Users may disable cookies through browser settings."
+              }
+            }
+          }
+        },
+        "dataRetention": {
+          "title": "Data Retention",
+          "blocks": {
+            "main": {
+              "description": "Personal information is retained only as long as necessary for:",
+              "items": {
+                "serviceDelivery": "Service delivery.",
+                "legalCompliance": "Legal compliance.",
+                "recordKeeping": "Record keeping.",
+                "businessOperations": "Business operations."
+              }
+            }
+          }
+        },
+        "yourRights": {
+          "title": "Your Privacy Rights",
+          "blocks": {
+            "main": {
+              "description": "Depending on applicable laws, users may have the right to:",
+              "items": {
+                "accessInformation": "Access personal information.",
+                "correctInformation": "Correct inaccurate information.",
+                "requestDeletion": "Request deletion of personal data.",
+                "withdrawConsent": "Withdraw consent where applicable.",
+                "requestProcessingInfo": "Request information regarding data processing."
+              }
+            }
+          }
+        },
+        "thirdPartyServices": {
+          "title": "Third-Party Services & Links",
+          "blocks": {
+            "main": {
+              "description": "Our website may use third-party services for analytics, communications, or logistics operations. These providers are responsible for their own privacy practices."
+            }
+          }
+        },
+        "changes": {
+          "title": "Changes to This Privacy Policy",
+          "blocks": {
+            "main": {
+              "description": "We may update this Privacy Policy periodically. Changes become effective immediately after publication on this page."
+            }
+          }
+        },
+        "contactUs": {
+          "title": "Contact Us",
+          "blocks": {
+            "main": {
+              "description": "For privacy-related questions, contact: Parrot Cargo & Logistics Email: parrotcargoandlogistics@gmail.com Phone: +252 613 212 221 Address: Bakaaro Market, Suuqa Daawada, Mogadishu, Somalia"
+            }
+          }
+        }
+      }
+    },
+    "termsConditions": {
+      "metadata": {
+        "title": "Terms & Conditions | Parrot Cargo & Logistics",
+        "description": "Read the Terms & Conditions for using the Parrot Cargo & Logistics website and logistics services."
+      },
+      "hero": {
+        "title": "Terms & Conditions"
+      },
+      "breadcrumbs": {
+        "home": "Home",
+        "current": "Terms & Conditions"
+      },
+      "navLabel": "Terms and conditions sections",
+      "sections": {
+        "introduction": {
+          "title": "Introduction",
+          "blocks": {
+            "main": {
+              "description": "Welcome to Parrot Cargo & Logistics. By accessing and using our website and services, you agree to comply with these Terms & Conditions. If you do not agree with any part of these terms, please refrain from using our services."
+            }
+          }
+        },
+        "services": {
+          "title": "Services",
+          "blocks": {
+            "main": {
+              "description": "Parrot Cargo & Logistics provides freight forwarding, customs clearance, cargo handling, project cargo management, shipment tracking, and related logistics services.",
+              "paragraphs": {
+                "availability": "All services are subject to operational availability, applicable laws, customs regulations, and international shipping requirements."
+              }
+            }
+          }
+        },
+        "userResponsibilities": {
+          "title": "User Responsibilities",
+          "blocks": {
+            "main": {
+              "description": "Users agree to:",
+              "items": {
+                "accurateInformation": "Provide accurate and complete information.",
+                "complyWithLaws": "Comply with all applicable laws and regulations.",
+                "ensureCargoLegality": "Ensure cargo contents are legal and properly declared.",
+                "submitDocumentation": "Submit required shipping and customs documentation.",
+                "useWebsiteResponsibly": "Use the website responsibly and lawfully."
+              }
+            }
+          }
+        },
+        "quotationsPricing": {
+          "title": "Quotations & Pricing",
+          "blocks": {
+            "main": {
+              "description": "All quotations provided by Parrot Cargo & Logistics are estimates based on the information supplied by the customer. Final pricing may vary due to:",
+              "items": {
+                "cargoDimensions": "Cargo dimensions and weight.",
+                "customsDuties": "Customs duties and taxes.",
+                "governmentFees": "Government fees.",
+                "fuelSurcharges": "Fuel surcharges.",
+                "handlingRequirements": "Additional handling requirements."
+              }
+            }
+          }
+        },
+        "shipmentTracking": {
+          "title": "Shipment Tracking",
+          "blocks": {
+            "main": {
+              "description": "Tracking information is provided for informational purposes only. While we strive to provide accurate and real-time updates, shipment status may occasionally be delayed due to operational, customs, or third-party carrier factors."
+            }
+          }
+        },
+        "customsCompliance": {
+          "title": "Customs Compliance",
+          "blocks": {
+            "main": {
+              "description": "Customers are responsible for ensuring all cargo complies with the laws and regulations of origin, transit, and destination countries. Parrot Cargo & Logistics reserves the right to refuse shipments that violate applicable regulations."
+            }
+          }
+        },
+        "limitationOfLiability": {
+          "title": "Limitation of Liability",
+          "blocks": {
+            "main": {
+              "description": "Parrot Cargo & Logistics shall not be held liable for:",
+              "items": {
+                "customsDelays": "Delays caused by customs authorities.",
+                "governmentRestrictions": "Government restrictions.",
+                "naturalDisasters": "Natural disasters.",
+                "actsOfWar": "Acts of war.",
+                "carrierDisruptions": "Carrier disruptions.",
+                "forceMajeure": "Force majeure events beyond our control."
+              },
+              "paragraphs": {
+                "limited": "Liability shall be limited to the extent permitted by applicable law."
+              }
+            }
+          }
+        },
+        "intellectualProperty": {
+          "title": "Intellectual Property",
+          "blocks": {
+            "main": {
+              "description": "All content on this website, including text, graphics, logos, images, and designs, remains the property of Parrot Cargo & Logistics unless otherwise stated. Unauthorized reproduction or distribution is prohibited."
+            }
+          }
+        },
+        "thirdPartyLinks": {
+          "title": "Third-Party Links",
+          "blocks": {
+            "main": {
+              "description": "Our website may contain links to external websites. We are not responsible for the content, privacy practices, or services provided by third-party websites."
+            }
+          }
+        },
+        "changesToTerms": {
+          "title": "Changes to Terms",
+          "blocks": {
+            "main": {
+              "description": "Parrot Cargo & Logistics reserves the right to update these Terms & Conditions at any time. Changes become effective immediately upon publication on this website."
+            }
+          }
+        },
+        "contactInformation": {
+          "title": "Contact Information",
+          "blocks": {
+            "main": {
+              "description": "For questions regarding these Terms & Conditions, please contact: Parrot Cargo & Logistics Email: parrotcargoandlogistics@gmail.com Phone: +252 613 212 221"
+            }
+          }
+        }
+      }
+    }
+  },
+  "contactPage": {
+    "metadata": {
+      "title": "Contact Us | Parrot Cargo & Logistics",
+      "description": "Contact Parrot Cargo & Logistics for freight forwarding, customs clearance, project cargo, air freight, and sea freight support."
+    },
+    "hero": {
+      "title": "Contact Us"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "contact": "Contact"
+    },
+    "eyebrow": "Contact Us",
+    "title": "Let's Discuss Your Logistics Requirements",
+    "description": "Whether you need freight forwarding, customs clearance, or project cargo support, our team is ready to assist.",
+    "offices": {
+      "title": "Registered International Offices",
+      "items": {
+        "somalia": {
+          "title": "Somalia Office (HQ)",
+          "address": "Bakaro Market, Mogadishu, Somalia",
+          "phone": "+252 613122221",
+          "email": "parrotcargoandlogistics@gmail.com",
+          "hours": "Sat - Thu: 8:00 AM – 5:00 PM"
+        },
+        "china": {
+          "title": "China Office (Trade Center)",
+          "address": "Guangdong, Foshan City, China",
+          "phone": "+86 135 4250 8891",
+          "email": "parrotcargoandlogistics@gmail.com",
+          "hours": "Mon - Fri: 8:00 AM – 5:00 PM"
+        }
+      }
+    },
+    "form": {
+      "title": "Let’s Contact Today",
+      "description": "Our trade managers review and redirect inquiries to the correct hub manager immediately.",
+      "fields": {
+        "fullName": "Full name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "service": "Service Required",
+        "message": "Message..."
+      },
+      "services": {
+        "airFreight": "Air Freight",
+        "seaFreight": "Sea Freight",
+        "customsClearance": "Custom Clearance",
+        "projectCargo": "Project Cargo"
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully.",
+      "error": "Failed to send message. Please try again."
+    },
+    "whatsapp": {
+      "title": "Need Instant Booking Support?",
+      "description": "Chat directly with our Mogadishu desk agents.",
+      "cta": "Chat on WhatsApp"
+    },
+    "maps": {
+      "directions": "Get Directions",
+      "items": {
+        "bakaro": {
+          "tab": "Bakaro",
+          "title": "Xarunta Bakba",
+          "address": "123 Isgoyska Dabka, Mogadishu, Somalia"
+        },
+        "dabka": {
+          "tab": "Dabka",
+          "title": "Dabka Branch",
+          "address": "Igsyidka Dabka, Mogadishu, Somalia"
+        }
+      }
+    }
+  },
+  "galleryPage": {
+    "metadata": {
+      "title": "Gallery | Parrot Cargo & Logistics",
+      "description": "Explore the Parrot Cargo & Logistics gallery featuring cargo handling, air freight, sea freight, warehouse operations, and logistics solutions."
+    },
+    "hero": {
+      "title": "Our Gallery"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "gallery": "Gallery"
+    },
+    "images": {
+      "image1": "Air cargo loading operation at sunset",
+      "image2": "Cargo plane, ship, and truck logistics network",
+      "image3": "Container ship transporting cargo at sea",
+      "image4": "Warehouse team handling cargo boxes",
+      "image5": "Warehouse shipment boxes ready for dispatch",
+      "image6": "Container terminal with cargo ship and cranes",
+      "image7": "Port container yard at sunset",
+      "image8": "Forklift moving cargo boxes inside warehouse",
+      "image9": "Cargo containers and freight transport at port"
     }
   }
 }

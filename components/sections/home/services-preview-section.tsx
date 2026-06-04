@@ -56,8 +56,8 @@ export function ServicesPreviewSection() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group block w-[82vw] shrink-0 snap-start rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-85 lg:w-92.5">
-                <article className="relative min-h-72.5 overflow-hidden rounded-lg border border-stroke bg-card transition-transform duration-300 group-hover:-translate-y-1 md:min-h-80">
+                className="group block w-[82vw] shrink-0 snap-start rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-85 lg:w-92.5">
+                <article className="relative min-h-72.5 overflow-hidden rounded-sm border border-stroke bg-card transition-transform duration-300 group-hover:-translate-y-1 md:min-h-80">
                   <Image
                     src={service.image}
                     alt={t(`items.${service.key}.imageAlt`)}

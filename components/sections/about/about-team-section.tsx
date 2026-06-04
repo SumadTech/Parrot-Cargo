@@ -83,10 +83,10 @@ export function AboutTeamSection() {
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member, index) => (
             <MotionWrapper key={member.key} delay={index * 0.06}>
-              <article className="group h-95 rounded-lg [perspective:1200px] sm:h-105 lg:h-110">
-                <div className="relative size-full rounded-lg transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]">
+              <article className="group h-95 rounded-sm perspective-distant sm:h-105 lg:h-110">
+                <div className="relative size-full rounded-sm transition-transform duration-700 transform-3d group-hover:transform-[rotateY(180deg)] group-focus-within:transform-[rotateY(180deg)]">
                   {/* Front side */}
-                  <div className="absolute inset-0 overflow-hidden rounded-lg border border-stroke bg-card shadow-sm [backface-visibility:hidden]">
+                  <div className="absolute inset-0 overflow-hidden rounded-sm border border-stroke bg-card shadow-sm backface-hidden">
                     <Image
                       src={member.image}
                       alt={t(`members.${member.key}.imageAlt`)}
@@ -109,7 +109,7 @@ export function AboutTeamSection() {
                   </div>
 
                   {/* Back side */}
-                  <div className="absolute inset-0 flex flex-col rounded-lg bg-primary p-6 text-primary-foreground shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-7">
+                  <div className="absolute inset-0 flex flex-col rounded-sm bg-primary p-6 text-primary-foreground shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-7">
                     <div>
                       <h3 className="text-body-2 font-semibold text-primary-foreground">
                         {t(`members.${member.key}.name`)}
@@ -136,8 +136,7 @@ export function AboutTeamSection() {
                             socialIndex === 0
                               ? "grid size-9 place-items-center rounded-full bg-primary-foreground text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
                               : "grid size-9 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-                          }
-                        >
+                          }>
                           <Icon className="size-4" aria-hidden="true" />
                         </a>
                       ))}

@@ -32,6 +32,10 @@ const quickLinks = [
     href: "/#industries",
   },
   {
+    key: "Gallery",
+    href: "/gallery",
+  },
+  {
     key: "contact",
     href: "/contact",
   },
@@ -269,7 +273,7 @@ export function Footer() {
             </Link>
             <span aria-hidden="true">|</span>
             <Link
-              href="/terms-of-service"
+              href="/terms-and-conditions"
               className="transition-colors hover:text-secondary"
             >
               {t("legal.terms")}

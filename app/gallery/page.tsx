@@ -1,14 +1,38 @@
 import { PageHero } from "@/components/sections/hero/page-hero";
-import heroImage from "@/public/images/hero/wareHouse.jpg";
+import { GallerySection } from "@/components/sections/gallery/gallery-section";
+import heroImage from "@/public/images/hero/hero-air-cargo.png";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
-export default function GalleryPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("galleryPage.metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
+
+export default async function GalleryPage() {
+  const t = await getTranslations("galleryPage");
+
   return (
     <main>
       <PageHero
-        title="Gallery"
-        description="View Parrot Cargo operations, shipments, warehouses, cargo handling, and logistics activities."
+        title={t("hero.title")}
         image={heroImage}
+        breadcrumbs={[
+          {
+            label: t("breadcrumbs.home"),
+            href: "/",
+          },
+          {
+            label: t("breadcrumbs.gallery"),
+          },
+        ]}
       />
+
+      <GallerySection />
     </main>
   );
 }

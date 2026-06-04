@@ -80,7 +80,7 @@ export function HowItWorksSection() {
                     </span>
                   </div>
 
-                  <div className="min-w-0 rounded-lg border border-stroke bg-card p-4">
+                  <div className="min-w-0 rounded-sm border border-stroke bg-card p-4">
                     <h3 className="text-body-3 font-semibold text-heading">
                       {t(`steps.${key}.title`)}
                     </h3>

@@ -1,15 +1,13 @@
 import { Container } from "@/components/common/container";
 import { MotionWrapper } from "@/components/common/motion-wrapper";
 import { Section } from "@/components/common/section";
-import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { HiOutlineCheckBadge } from "react-icons/hi2";
 
 import aboutShipImage from "@/public/images/home/home-previ (1).png";
-import aboutWarehouseImage from "@/public/images/home/home-previ (3).png";
 import aboutAirImage from "@/public/images/home/home-previ (2).png";
+import aboutWarehouseImage from "@/public/images/home/home-previ (3).png";
 
 const featureKeys = [
   "internationalFreight",
@@ -109,7 +107,7 @@ export function AboutIntroSection() {
                 ))}
               </ul>
 
-              <div className="mt-7">
+              {/* <div className="mt-7">
                 <Link
                   href="/contact"
                   className="inline-flex min-h-11 w-full items-center justify-center gap-3 rounded-full bg-primary px-5 text-caption-2 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto"
@@ -119,7 +117,7 @@ export function AboutIntroSection() {
                     <ArrowUpRight className="size-4" aria-hidden="true" />
                   </span>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </MotionWrapper>
         </div>

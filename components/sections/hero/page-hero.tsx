@@ -20,7 +20,7 @@ export function PageHero({ title, image, breadcrumbs }: PageHeroProps) {
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-hero-overlay" />
+      {/* <div className="absolute inset-0 bg-hero-overlay" /> */}
       <div className="absolute inset-0 bg-linear-to-r from-hero-overlay-strong via-hero-overlay to-hero-overlay-soft" />
 
       <Container>
