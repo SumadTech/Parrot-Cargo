@@ -11,8 +11,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="system"
       enableSystem
+      themes={["light", "dark"]}
+      storageKey="parrot-cargo-theme"
       disableTransitionOnChange
     >
       {children}
