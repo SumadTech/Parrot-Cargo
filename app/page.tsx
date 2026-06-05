@@ -8,10 +8,13 @@ import { TestimonialsSection } from "@/components/sections/home/testimonials-sec
 import { WhyParrotSection } from "@/components/sections/home/why-parrot-section";
 import { HomeHero } from "@/components/sections/hero/home-hero";
 import { CtaSection } from "@/components/sections/shared/cta-section";
+import { SiteHeader } from "@/components/layout/site-header";
+import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
   return (
     <main>
+      <SiteHeader />
       <HomeHero />
       <AboutPreviewSection />
       <ServicesPreviewSection />
@@ -22,6 +25,7 @@ export default function Home() {
       <StatsSection />
       <InsightsSection />
       <CtaSection />
+      <Footer />
     </main>
   );
 }
