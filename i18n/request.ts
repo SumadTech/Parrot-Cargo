@@ -26,5 +26,6 @@ export default getRequestConfig(async () => {
   return {
     locale,
     messages: messages[locale],
+    timeZone: "Africa/Mogadishu",
   };
 });
