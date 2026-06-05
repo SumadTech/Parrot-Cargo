@@ -4,16 +4,17 @@ import { LanguageToggle } from "@/components/common/language-toggle";
 import { ThemeToggle } from "@/components/common/theme-toggle";
 import { navigationItems } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { LayoutDashboard, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
 type MobileNavProps = {
   isScrolled: boolean;
+  isAdminLoggedIn: boolean;
 };
 
-export function MobileNav({ isScrolled }: MobileNavProps) {
+export function MobileNav({ isScrolled, isAdminLoggedIn }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("navigation");
 
@@ -28,7 +29,8 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
           isScrolled
             ? "border-border bg-card text-heading"
             : "border-white/20 bg-card/15 text-white backdrop-blur-md",
-        )}>
+        )}
+      >
         {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
 
@@ -40,10 +42,22 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-2xl px-4 py-3 text-caption-1 font-medium text-heading transition-colors hover:bg-accent">
+                className="rounded-2xl px-4 py-3 text-caption-1 font-medium text-heading transition-colors hover:bg-accent"
+              >
                 {t(item.labelKey)}
               </Link>
             ))}
+
+            {isAdminLoggedIn ? (
+              <Link
+                href="/admin"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center gap-3 rounded-2xl bg-primary px-4 py-3 text-caption-1 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover"
+              >
+                <LayoutDashboard className="size-4" aria-hidden="true" />
+                Dashboard
+              </Link>
+            ) : null}
           </nav>
 
           <div className="mt-4 grid gap-3 border-t border-border pt-4">
@@ -59,7 +73,8 @@ export function MobileNav({ isScrolled }: MobileNavProps) {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-caption-1 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover">
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-caption-1 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover"
+            >
               {t("requestQuote")}
             </Link>
           </div>
