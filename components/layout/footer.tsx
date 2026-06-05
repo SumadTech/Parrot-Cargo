@@ -1,18 +1,15 @@
 import { Container } from "@/components/common/container";
 import { siteConfig } from "@/config/site";
 import logo from "@/public/images/logo.png";
-import {
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
-import { CiLinkedin } from "react-icons/ci";
-import { FaFacebookF } from "react-icons/fa6";
-import { SlSocialInstagram } from "react-icons/sl";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { FaXTwitter } from "react-icons/fa6";
+import { CiLinkedin } from "react-icons/ci";
+import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
+import { SlSocialInstagram } from "react-icons/sl";
+
+import { cn } from "@/lib/utils";
 
 const quickLinks = [
   {
@@ -109,11 +106,12 @@ export function Footer() {
 
               <button
                 type="submit"
-                className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-card py-1.5 pe-1.5 ps-5 text-caption-2 font-semibold text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-card py-1.5 pe-1.5 ps-5 text-caption-2 font-semibold text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
               >
                 {t("newsletter.submit")}
-                <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                  <Mail className="size-4" aria-hidden="true" />
+
+                <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-primary group-hover:text-primary-foreground rtl:group-hover:-translate-x-0.5">
+                  <ArrowUpRight className="size-4" aria-hidden="true" />
                 </span>
               </button>
             </form>
@@ -191,68 +189,79 @@ export function Footer() {
             <div className="mt-3 h-px w-full bg-primary-foreground/15" />
 
             <ul className="mt-5 grid gap-4">
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-secondary" />
-                <div>
-                  <p className="text-caption-1 font-semibold text-primary-foreground">
-                    {t("contact.somalia.title")}
-                  </p>
-                  <p className="mt-1 text-caption-2 text-primary-foreground/75">
-                    {t("contact.somalia.address")}
-                  </p>
-                </div>
-              </li>
+              <li className="border-b border-primary-foreground/10 pb-4">
+                <div className="flex gap-3">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-secondary" />
 
-              <li className="flex gap-3">
-                <Phone className="mt-0.5 size-4 shrink-0 text-secondary" />
+                  <div className="min-w-0">
+                    <p className="text-caption-1 font-semibold text-primary-foreground">
+                      {t("contact.somalia.title")}
+                    </p>
+
+                    <p className="mt-1 text-caption-2 text-primary-foreground/75">
+                      {t("contact.somalia.address")}
+                    </p>
+                  </div>
+                </div>
+
                 <Link
                   href={`tel:${siteConfig.contact.somaliaDesk.replace(/\s/g, "")}`}
-                  className="text-caption-1 text-primary-foreground/80 transition-colors hover:text-secondary"
+                  className="mt-3 inline-flex items-center gap-3 text-caption-1 text-primary-foreground/80 transition-colors hover:text-secondary"
                 >
+                  <Phone className="size-4 shrink-0 text-secondary" />
                   {siteConfig.contact.somaliaDesk}
                 </Link>
               </li>
 
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-secondary" />
-                <div>
-                  <p className="text-caption-1 font-semibold text-primary-foreground">
-                    {t("contact.china.title")}
-                  </p>
-                  <p className="mt-1 text-caption-2 text-primary-foreground/75">
-                    {t("contact.china.address")}
-                  </p>
-                </div>
-              </li>
+              <li className="border-b border-primary-foreground/10 pb-4">
+                <div className="flex gap-3">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-secondary" />
 
-              <li className="flex gap-3">
-                <Phone className="mt-0.5 size-4 shrink-0 text-secondary" />
+                  <div className="min-w-0">
+                    <p className="text-caption-1 font-semibold text-primary-foreground">
+                      {t("contact.china.title")}
+                    </p>
+
+                    <p className="mt-1 text-caption-2 text-primary-foreground/75">
+                      {t("contact.china.address")}
+                    </p>
+                  </div>
+                </div>
+
                 <Link
                   href={`tel:${siteConfig.contact.chinaOps.replace(/\s/g, "")}`}
-                  className="text-caption-1 text-primary-foreground/80 transition-colors hover:text-secondary"
+                  className="mt-3 inline-flex items-center gap-3 text-caption-1 text-primary-foreground/80 transition-colors hover:text-secondary"
                 >
+                  <Phone className="size-4 shrink-0 text-secondary" />
                   {siteConfig.contact.chinaOps}
                 </Link>
               </li>
 
-              <li className="flex gap-3">
-                <Mail className="mt-0.5 size-4 shrink-0 text-secondary" />
+              <li>
                 <Link
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="break-all text-caption-1 text-primary-foreground/80 transition-colors hover:text-secondary"
+                  className="inline-flex min-w-0 items-center gap-3 break-all text-caption-1 text-primary-foreground/80 underline-offset-4 transition-colors hover:text-secondary hover:underline"
                 >
-                  {siteConfig.contact.email}
+                  <Mail className="size-4 shrink-0 text-secondary" />
+                  <span className="min-w-0 break-all">
+                    {siteConfig.contact.email}
+                  </span>
                 </Link>
               </li>
             </ul>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">
-              {socials.map(({ key, href, Icon }) => (
+              {socials.map(({ key, href, Icon }, index) => (
                 <Link
                   key={key}
                   href={href}
                   aria-label={t(`socials.${key}`)}
-                  className="grid size-9 place-items-center rounded-full bg-primary-foreground/10 text-primary-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                  className={cn(
+                    "grid size-9 place-items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary",
+                    index === 0
+                      ? "bg-secondary text-secondary-foreground hover:bg-primary-foreground hover:text-primary"
+                      : "bg-primary-foreground/10 text-primary-foreground hover:bg-secondary hover:text-secondary-foreground",
+                  )}
                 >
                   <Icon className="size-4" aria-hidden="true" />
                 </Link>
@@ -261,8 +270,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 py-6 text-caption-2  sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-muted-foreground">{t("copyright", { year: new Date().getFullYear() })}</p>
+        <div className="flex flex-col gap-4 py-6 text-caption-2 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-muted-foreground">
+            {t("copyright", { year: new Date().getFullYear() })}
+          </p>
 
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
             <Link
@@ -271,7 +282,9 @@ export function Footer() {
             >
               {t("legal.privacy")}
             </Link>
+
             <span aria-hidden="true">|</span>
+
             <Link
               href="/terms-and-conditions"
               className="transition-colors hover:text-secondary"
