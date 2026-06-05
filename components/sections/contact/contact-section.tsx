@@ -75,20 +75,26 @@ export function ContactSection() {
   return (
     <Section className="bg-background">
       <Container>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(420px,1.2fr)] lg:items-start xl:gap-10">
+        <MotionWrapper>
+          <div className="max-w-3xl">
+            <p className="text-caption-1 font-medium text-secondary">
+              {t("eyebrow")}
+            </p>
+
+            <h2 className="mt-3 max-w-2xl text-heading-4 text-heading sm:text-heading-3">
+              {t("title")}
+            </h2>
+
+            <p className="mt-4 max-w-2xl text-body-3 text-body">
+              {t("description")}
+            </p>
+          </div>
+        </MotionWrapper>
+
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(420px,1.18fr)] lg:items-start xl:gap-10">
           <MotionWrapper className="min-w-0">
-            <div className="max-w-2xl">
-              <p className="text-caption-1 font-medium text-secondary">
-                {t("eyebrow")}
-              </p>
-
-              <h2 className="mt-3 text-heading-4 text-heading">{t("title")}</h2>
-
-              <p className="mt-5 text-body-3 text-body">{t("description")}</p>
-            </div>
-
-            <div className="mt-10">
-              <h3 className="text-heading-4 text-heading">
+            <div>
+              <h3 className="max-w-md text-heading-4 text-heading">
                 {t("offices.title")}
               </h3>
 
@@ -96,7 +102,8 @@ export function ContactSection() {
                 {contactOffices.map((office) => (
                   <article
                     key={office.key}
-                    className="rounded-sm border border-stroke bg-surface-secondary p-5">
+                    className="rounded-sm border border-stroke bg-surface-secondary p-5"
+                  >
                     <h4 className="text-body-2 font-semibold text-heading">
                       {t(`offices.items.${office.key}.title`)}
                     </h4>
@@ -105,7 +112,8 @@ export function ContactSection() {
                       {office.details.map(({ key, Icon }) => (
                         <div
                           key={key}
-                          className="flex min-w-0 items-center gap-3 text-caption-1 text-heading">
+                          className="flex min-w-0 items-center gap-3 text-caption-1 text-heading"
+                        >
                           <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                             <Icon className="size-5" aria-hidden="true" />
                           </span>
@@ -123,13 +131,13 @@ export function ContactSection() {
           </MotionWrapper>
 
           <MotionWrapper delay={0.12} className="min-w-0">
-            <div className="rounded-sm border border-stroke bg-surface-secondary p-5 sm:p-6 lg:p-7">
-              <div className="max-w-xl">
-                <h3 className="text-heading-5 text-heading">
+            <div className="rounded-sm border border-stroke bg-surface-secondary p-5 sm:p-7 lg:p-8">
+              <div className="max-w-2xl">
+                <h3 className="text-heading-4 text-heading">
                   {t("form.title")}
                 </h3>
 
-                <p className="mt-3 text-caption-1 text-body">
+                <p className="mt-3 max-w-xl text-caption-1 text-body sm:text-body-3">
                   {t("form.description")}
                 </p>
               </div>
@@ -165,7 +173,8 @@ export function ContactSection() {
                       name="service"
                       required
                       defaultValue=""
-                      className="min-h-12 w-full appearance-none rounded-md border border-primary bg-background px-4 pe-10 text-caption-1 text-heading outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                      className="min-h-12 w-full appearance-none rounded-md border border-primary bg-background px-4 pe-10 text-caption-1 text-heading outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    >
                       <option value="" disabled>
                         {t("form.fields.service")}
                       </option>
@@ -173,7 +182,8 @@ export function ContactSection() {
                       {serviceOptions.map((option) => (
                         <option
                           key={option}
-                          value={t(`form.services.${option}`)}>
+                          value={t(`form.services.${option}`)}
+                        >
                           {t(`form.services.${option}`)}
                         </option>
                       ))}
@@ -204,7 +214,8 @@ export function ContactSection() {
                           ? "text-secondary"
                           : "text-body",
                     )}
-                    role={feedback ? "status" : undefined}>
+                    role={feedback ? "status" : undefined}
+                  >
                     {feedback}
                   </p>
 
@@ -213,7 +224,8 @@ export function ContactSection() {
                     disabled={formState === "loading"}
                     variant="primary"
                     iconSize="sm"
-                    className="w-full  sm:w-auto">
+                    className="w-full sm:w-auto"
+                  >
                     {formState === "loading"
                       ? t("form.sending")
                       : t("form.submit")}
@@ -237,7 +249,8 @@ export function ContactSection() {
                     href="https://wa.me/252613212221"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-secondary px-4 text-caption-2 font-semibold text-secondary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-secondary px-4 text-caption-2 font-semibold text-secondary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
                     <FaWhatsapp className="size-5" aria-hidden="true" />
                     {t("whatsapp.cta")}
                   </a>
@@ -277,14 +290,16 @@ export function ContactSection() {
                       activeMap === location.key
                         ? "bg-primary text-primary-foreground"
                         : "text-heading hover:bg-card",
-                    )}>
+                    )}
+                  >
                     {t(`maps.items.${location.key}.tab`)}
                   </button>
                 ))}
               </div>
             </div>
+<div className="relative">
 
-            <div className="relative mt-5 min-h-80 overflow-hidden rounded-md border border-stroke bg-surface-secondary sm:min-h-100 lg:min-h-112">
+            <div className="mt-5 min-h-80 overflow-hidden rounded-md border border-stroke bg-surface-secondary sm:min-h-100 lg:min-h-112">
               <iframe
                 key={currentLocation.key}
                 src={currentLocation.mapSrc}
@@ -294,8 +309,7 @@ export function ContactSection() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-
-            <div className="mt-5 flex justify-end">
+            <div className="absolute right-14 bottom-3 flex justify-end">
               <a
                 href={
                   activeMap === "bakaro"
@@ -304,12 +318,14 @@ export function ContactSection() {
                 }
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-11 items-center justify-center gap-3 rounded-md bg-primary px-5 text-caption-2 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                className="inline-flex min-h-11 items-center justify-center gap-3 rounded-md bg-primary px-5 text-caption-2 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
                 {t("maps.directions")}
-
                 <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
             </div>
+</div>
+
           </div>
         </MotionWrapper>
       </Container>
