@@ -5,8 +5,8 @@ import { MotionWrapper } from "@/components/common/motion-wrapper";
 import { Section } from "@/components/common/section";
 import { cn } from "@/lib/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import testimonialImage from "@/public/images/home/tesetimonial.png";
 
@@ -35,37 +35,57 @@ const testimonials = [
 
 export function TestimonialsSection() {
   const t = useTranslations("homeTestimonials");
+  const locale = useLocale();
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement | null>(null);
   const cardRefs = useRef<(HTMLElement | null)[]>([]);
 
-  function scrollToCard(index: number) {
+  const isRtl = locale === "ar";
+
+  const scrollToCard = useCallback((index: number) => {
+    const slider = sliderRef.current;
     const nextIndex = (index + testimonials.length) % testimonials.length;
+    const card = cardRefs.current[nextIndex];
+
+    if (!slider || !card) return;
 
     setActiveIndex(nextIndex);
 
-    cardRefs.current[nextIndex]?.scrollIntoView({
+    const sliderRect = slider.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+
+    const currentLeft = slider.scrollLeft;
+    const cardCenter = cardRect.left - sliderRect.left + cardRect.width / 2;
+    const sliderCenter = sliderRect.width / 2;
+
+    slider.scrollTo({
+      left: currentLeft + cardCenter - sliderCenter,
       behavior: "smooth",
-      inline: "center",
-      block: "nearest",
     });
-  }
+  }, []);
 
-  function goPrevious() {
+  const goPrevious = useCallback(() => {
     scrollToCard(activeIndex - 1);
-  }
+  }, [activeIndex, scrollToCard]);
 
-  function goNext() {
+  const goNext = useCallback(() => {
     scrollToCard(activeIndex + 1);
-  }
+  }, [activeIndex, scrollToCard]);
 
   useEffect(() => {
-    cardRefs.current[activeIndex]?.scrollIntoView({
-      behavior: "instant",
-      inline: "center",
-      block: "nearest",
-    });
-  }, [activeIndex]);
+    const interval = window.setInterval(() => {
+      if (isRtl) {
+        goPrevious();
+      } else {
+        goNext();
+      }
+    }, 3000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [goNext, goPrevious, isRtl]);
 
   return (
     <Section className="bg-background">
@@ -81,47 +101,56 @@ export function TestimonialsSection() {
         </MotionWrapper>
 
         <MotionWrapper delay={0.12} className="mt-8">
-          <div
-            className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-1 pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden"
-            aria-label={t("carouselLabel")}>
-            {testimonials.map((testimonial, index) => (
-              <article
-                key={testimonial.key}
-                ref={(node) => {
-                  cardRefs.current[index] = node;
-                }}
-                className="w-[86vw] shrink-0 snap-center rounded-sm border border-stroke bg-surface-secondary p-5 sm:w-170 sm:p-7 lg:w-190">
-                <div className="flex items-center gap-1 text-secondary">
-                  {Array.from({ length: 5 }).map((_, starIndex) => (
-                    <FaStar
-                      key={starIndex}
-                      className="size-4 sm:size-5"
-                      aria-hidden="true"
-                    />
-                  ))}
-                </div>
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-background to-transparent sm:w-20" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-background to-transparent sm:w-20" />
 
-                <blockquote className="mt-7 text-body-3 text-heading sm:text-body-2">
-                  “{t(`items.${testimonial.key}.quote`)}”
-                </blockquote>
-
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="grid size-12 shrink-0 place-items-center rounded-full bg-secondary text-caption-1 font-semibold text-secondary-foreground">
-                    {testimonial.initials}
+            <div
+              ref={sliderRef}
+              dir={isRtl ? "rtl" : "ltr"}
+              className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-1 pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden"
+              aria-label={t("carouselLabel")}
+            >
+              {testimonials.map((testimonial, index) => (
+                <article
+                  key={testimonial.key}
+                  ref={(node) => {
+                    cardRefs.current[index] = node;
+                  }}
+                  className="w-[86vw] shrink-0 snap-center rounded-sm border border-stroke bg-surface-secondary p-5 sm:w-170 sm:p-7 lg:w-190"
+                >
+                  <div className="flex items-center gap-1 text-secondary">
+                    {Array.from({ length: 5 }).map((_, starIndex) => (
+                      <FaStar
+                        key={starIndex}
+                        className="size-4 sm:size-5"
+                        aria-hidden="true"
+                      />
+                    ))}
                   </div>
 
-                  <div className="min-w-0">
-                    <p className="text-body-3 font-semibold text-heading">
-                      {t(`items.${testimonial.key}.name`)}
-                    </p>
+                  <blockquote className="mt-7 text-body-3 text-heading sm:text-body-2">
+                    “{t(`items.${testimonial.key}.quote`)}”
+                  </blockquote>
 
-                    <p className="mt-1 text-caption-2 text-body">
-                      {t(`items.${testimonial.key}.role`)}
-                    </p>
+                  <div className="mt-8 flex items-center gap-4">
+                    <div className="grid size-12 shrink-0 place-items-center rounded-full bg-secondary text-caption-1 font-semibold text-secondary-foreground">
+                      {testimonial.initials}
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="text-body-3 font-semibold text-heading">
+                        {t(`items.${testimonial.key}.name`)}
+                      </p>
+
+                      <p className="mt-1 text-caption-2 text-body">
+                        {t(`items.${testimonial.key}.role`)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              ))}
+            </div>
           </div>
 
           <div className="mt-5 flex items-center justify-center gap-6">
@@ -129,7 +158,8 @@ export function TestimonialsSection() {
               type="button"
               aria-label={t("previous")}
               onClick={goPrevious}
-              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
               <ArrowLeft className="size-5 rtl:rotate-180" />
             </button>
 
@@ -154,7 +184,8 @@ export function TestimonialsSection() {
               type="button"
               aria-label={t("next")}
               onClick={goNext}
-              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+              className="grid size-11 place-items-center rounded-full border border-stroke bg-card text-primary transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
               <ArrowRight className="size-5 rtl:rotate-180" />
             </button>
           </div>
