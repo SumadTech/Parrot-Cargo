@@ -20,6 +20,7 @@ type BlogDetailsPageProps = {
   }>;
 };
 
+export const dynamic = "force-dynamic";
 export const revalidate = 300;
 
 function formatDate(value?: string | null) {
@@ -48,14 +49,6 @@ export async function generateMetadata({
     title: blog.seo.title || `${blog.title} | Parrot Cargo`,
     description: blog.seo.description || blog.excerpt,
   };
-}
-
-export async function generateStaticParams() {
-  const blogs = await getPublishedBlogs();
-
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
 }
 
 export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) {
