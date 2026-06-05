@@ -8,31 +8,68 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
-
-const SCROLL_DISTANCE = 360;
+import { useCallback, useEffect, useRef } from "react";
 
 export function ServicesPreviewSection() {
   const t = useTranslations("homeServicesPreview");
   const locale = useLocale();
+
   const sliderRef = useRef<HTMLDivElement>(null);
+  const activeIndexRef = useRef(0);
 
   const isRtl = locale === "ar";
 
-  function scrollSlider(direction: "previous" | "next") {
-    const slider = sliderRef.current;
+  const scrollToIndex = useCallback((nextIndex: number) => {
+  const slider = sliderRef.current;
 
-    if (!slider) return;
+  if (!slider) return;
 
-    const multiplier = direction === "next" ? 1 : -1;
+  const slides = Array.from(slider.children);
+  const slide = slides[nextIndex] as HTMLElement | undefined;
 
-    slider.scrollBy({
-      left: isRtl
-        ? -SCROLL_DISTANCE * multiplier
-        : SCROLL_DISTANCE * multiplier,
-      behavior: "smooth",
-    });
-  }
+  if (!slide) return;
+
+  activeIndexRef.current = nextIndex;
+
+  slider.scrollTo({
+    left: slide.offsetLeft,
+    behavior: "smooth",
+  });
+}, []);
+
+  const scrollSlider = useCallback(
+    (direction: "previous" | "next") => {
+      const lastIndex = services.length - 1;
+
+      const normalDirection = isRtl
+        ? direction === "next"
+          ? "previous"
+          : "next"
+        : direction;
+
+      const nextIndex =
+        normalDirection === "next"
+          ? activeIndexRef.current >= lastIndex
+            ? 0
+            : activeIndexRef.current + 1
+          : activeIndexRef.current <= 0
+            ? lastIndex
+            : activeIndexRef.current - 1;
+
+      scrollToIndex(nextIndex);
+    },
+    [isRtl, scrollToIndex],
+  );
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      scrollSlider("next");
+    }, 3000);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, [scrollSlider]);
 
   return (
     <Section className="bg-background">
@@ -48,45 +85,51 @@ export function ServicesPreviewSection() {
         </MotionWrapper>
 
         <MotionWrapper delay={0.12} className="mt-10">
-          <div
-            ref={sliderRef}
-            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden sm:gap-5"
-            aria-label={t("carouselLabel")}>
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="group block w-[82vw] shrink-0 snap-start rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-85 lg:w-92.5">
-                <article className="relative min-h-72.5 overflow-hidden rounded-sm border border-stroke bg-card transition-transform duration-300 group-hover:-translate-y-1 md:min-h-80">
-                  <Image
-                    src={service.image}
-                    alt={t(`items.${service.key}.imageAlt`)}
-                    fill
-                    sizes="(max-width: 640px) 82vw, (max-width: 1024px) 340px, 370px"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-background via-transparent to-transparent sm:w-16" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-background to-transparent sm:w-16" />
 
-                  <div className="absolute inset-0 bg-media-card-overlay-soft" />
-                  <div className="absolute inset-0 bg-linear-to-t from-media-card-overlay via-media-card-overlay-soft to-transparent" />
+            <div
+              ref={sliderRef}
+              dir={isRtl ? "rtl" : "ltr"}
+              className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 scrollbar-none [&::-webkit-scrollbar]:hidden sm:gap-5"
+              aria-label={t("carouselLabel")}>
+              {services.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="group block w-[82vw] shrink-0 snap-start rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-85 lg:w-92.5">
+                  <article className="relative min-h-72.5 overflow-hidden rounded-sm border border-stroke bg-card transition-transform duration-300 group-hover:-translate-y-1 md:min-h-80">
+                    <Image
+                      src={service.image}
+                      alt={t(`items.${service.key}.imageAlt`)}
+                      fill
+                      sizes="(max-width: 640px) 82vw, (max-width: 1024px) 340px, 370px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
 
-                  <span className="absolute inset-e-4 top-4 grid size-10 place-items-center rounded-full bg-card text-secondary transition-colors duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
-                    <ArrowUpRight className="size-5" />
-                  </span>
+                    <div className="absolute inset-0 bg-media-card-overlay-soft" />
+                    <div className="absolute inset-0 bg-linear-to-t from-media-card-overlay via-media-card-overlay-soft to-transparent" />
 
-                  <div className="absolute inset-x-0 bottom-0 px-5 py-3">
-                    <div className="transition-transform duration-300 md:translate-y-10 md:group-hover:translate-y-0">
-                      <h3 className="text-body-2 font-semibold text-media-card-foreground">
-                        {t(`items.${service.key}.title`)}
-                      </h3>
+                    <span className="absolute inset-e-4 top-4 grid size-10 place-items-center rounded-full bg-card text-secondary transition-colors duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
+                      <ArrowUpRight className="size-5" />
+                    </span>
 
-                      <p className="mt-2 max-w-sm text-caption-1 text-media-card-foreground opacity-90 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-90">
-                        {t(`items.${service.key}.description`)}
-                      </p>
+                    <div className="absolute inset-x-0 bottom-0 px-5 pb-2 pt-16 transition-all duration-300 group-hover:pb-5">
+                      <div className="transition-transform duration-300 md:translate-y-20 md:group-hover:translate-y-0">
+                        <h3 className="text-body-2 font-semibold text-media-card-foreground">
+                          {t(`items.${service.key}.title`)}
+                        </h3>
+
+                        <p className="mt-3 max-w-sm text-caption-1 text-media-card-foreground opacity-90 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-90">
+                          {t(`items.${service.key}.description`)}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              </Link>
-            ))}
+                  </article>
+                </Link>
+              ))}
+            </div>
           </div>
 
           <div className="mt-6 flex items-center justify-center gap-3 lg:justify-end">
