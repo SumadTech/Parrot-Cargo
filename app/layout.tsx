@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { SiteHeader } from "@/components/layout/site-header";
+import { AppProviders } from "@/components/providers/app-providers";
 import "./globals.css";
-import { Footer } from "@/components/layout/footer";
-import { FloatingWhatsApp } from "@/components/common/floating-whatsapp";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,16 +40,12 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${inter.variable} ${roboto.variable}`}>
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <SiteHeader />
-            {children}
-            <FloatingWhatsApp />
-            <Footer />
-          </ThemeProvider>
-        </NextIntlClientProvider>
+      className={`${inter.variable} ${roboto.variable}`}
+    >
+      <body suppressHydrationWarning>
+        <AppProviders locale={locale} messages={messages}>
+          {children}
+        </AppProviders>
       </body>
     </html>
   );
