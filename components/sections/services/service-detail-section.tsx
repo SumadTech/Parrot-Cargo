@@ -29,46 +29,46 @@ function RelatedServicesAside({ service }: ServiceDetailSectionProps) {
   const servicesT = useTranslations("servicesPage.items");
 
   return (
-    <aside aria-label={t("relatedServices")} className="min-w-0">
-      <h2 className="text-body-2 font-semibold text-heading">
-        {t("relatedServices")}
-      </h2>
+    <aside className="lg:sticky lg:top-27 lg:self-start">
+      <div className="rounded-sm bg-surface-secondary p-5">
+        <h2 className="text-body-3 font-semibold text-heading">
+          {t("relatedServices")}
+        </h2>
 
-      <nav className="mt-5 grid gap-3">
-        {services.map((item) => {
-          const isActive = item.slug === service.slug;
+        <nav aria-label={t("relatedServices")} className="mt-4 grid">
+          {services.map((item) => {
+            const isActive = item.slug === service.slug;
 
-          return (
-            <Link
-              key={item.slug}
-              href={`/services/${item.slug}`}
-              aria-current={isActive ? "page" : undefined}
-              className={cn(
-                "group flex min-h-12 items-center justify-between gap-4 rounded-md border border-transparent bg-surface-secondary px-4 text-caption-1 font-medium text-heading transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                isActive
-                  ? "text-secondary"
-                  : "hover:border-stroke hover:bg-card hover:text-primary",
-              )}>
-              <span className="min-w-0 wrap-break-word">
-                {servicesT(`${item.key}.title`)}
-              </span>
-
-              <span
+            return (
+              <Link
+                key={item.slug}
+                href={`/services/${item.slug}`}
+                aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "grid size-6 shrink-0 place-items-center rounded-full transition-colors",
-                  isActive
-                    ? "bg-secondary text-secondary-foreground"
-                    : "text-heading group-hover:bg-primary group-hover:text-primary-foreground",
+                  "group flex min-h-12 items-center justify-between gap-4 border-b border-stroke py-3 text-caption-1 font-medium transition-colors last:border-b-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  isActive ? "text-secondary" : "text-body hover:text-primary",
                 )}>
-                <ChevronRight
-                  className="size-4 rtl:rotate-180"
-                  aria-hidden="true"
-                />
-              </span>
-            </Link>
-          );
-        })}
-      </nav>
+                <span className="min-w-0 wrap-break-word">
+                  {servicesT(`${item.key}.title`)}
+                </span>
+
+                <span
+                  className={cn(
+                    "grid size-6 shrink-0 place-items-center rounded-full transition-colors",
+                    isActive
+                      ? "bg-secondary text-secondary-foreground"
+                      : "text-heading group-hover:bg-primary group-hover:text-primary-foreground",
+                  )}>
+                  <ChevronRight
+                    className="size-4 rtl:rotate-180"
+                    aria-hidden="true"
+                  />
+                </span>
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
     </aside>
   );
 }
@@ -80,12 +80,11 @@ export function ServiceDetailSection({ service }: ServiceDetailSectionProps) {
   const detail = serviceDetails[service.key];
 
   return (
-    <Section className="bg-background" safeX={false}>
+    <section className="bg-background py-12 sm:py-16 lg:py-20">
       <Container>
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start xl:gap-14">
-          {/* Left scrolling content */}
-          <MotionWrapper className="min-w-0">
-            <article className="min-w-0">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-14">
+          <article className="min-w-0">
+            <MotionWrapper>
               <p className="text-caption-1 font-medium text-secondary">
                 {t(`${service.key}.overview.eyebrow`)}
               </p>
@@ -157,9 +156,12 @@ export function ServiceDetailSection({ service }: ServiceDetailSectionProps) {
                 <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
                   {detail.benefits.map(({ key, Icon }, index) => (
                     <MotionWrapper key={key} delay={index * 0.04}>
-                      <article className="h-full rounded-sm border border-stroke bg-surface-secondary p-5">
-                        <div className="grid size-12 place-items-center rounded-full bg-primary text-primary-foreground">
-                          <Icon className="size-6" aria-hidden="true" />
+                      <article className="group h-full rounded-sm border border-stroke bg-surface-secondary p-5 transition-transform duration-300 hover:-translate-y-1">
+                        <div className="grid size-12 place-items-center rounded-full bg-primary text-primary-foreground transition-colors duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
+                          <Icon
+                            className="size-6 transition-transform duration-300 group-hover:scale-110"
+                            aria-hidden="true"
+                          />
                         </div>
 
                         <h3 className="mt-5 text-body-3 font-semibold text-heading">
@@ -176,23 +178,13 @@ export function ServiceDetailSection({ service }: ServiceDetailSectionProps) {
                   ))}
                 </div>
               </div>
-            </article>
-          </MotionWrapper>
+            </MotionWrapper>
+          </article>
 
-          {/* Right sticky related services */}
-          <div className="hidden min-w-0 lg:block lg:self-start">
-            <div className="sticky top-28">
-              <RelatedServicesAside service={service} />
-            </div>
-          </div>
-
-          {/* Mobile related services below content */}
-          <div className="min-w-0 lg:hidden">
-            <RelatedServicesAside service={service} />
-          </div>
+          <RelatedServicesAside service={service} />
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
 
@@ -343,9 +335,12 @@ export function ServiceIndustriesSection({
         <div className="mx-auto mt-10 grid max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {detail.industries.map(({ key, Icon }, index) => (
             <MotionWrapper key={key} delay={index * 0.05}>
-              <article className="flex h-full items-center gap-4 rounded-sm border border-stroke bg-surface-secondary p-5 transition-transform duration-300 hover:-translate-y-1">
-                <div className="grid size-12 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
-                  <Icon className="size-6" aria-hidden="true" />
+              <article className="group flex h-full items-center gap-4 rounded-sm border border-stroke bg-surface-secondary p-5 transition-transform duration-300 hover:-translate-y-1">
+                <div className="grid size-12 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground transition-colors duration-300 group-hover:bg-secondary group-hover:text-secondary-foreground">
+                  <Icon
+                    className="size-6 transition-transform duration-300 group-hover:scale-110"
+                    aria-hidden="true"
+                  />
                 </div>
 
                 <h3 className="min-w-0 text-body-3 font-semibold text-heading">
