@@ -39,7 +39,7 @@ export function FloatingWhatsApp({
       }
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "group fixed bottom-5 inset-e-5 z-40 grid size-16 place-items-center rounded-full bg-secondary/5  outline-none sm:bottom-7 sm:inset-e-7 sm:size-20",
+        "group fixed bottom-5 inset-e-5 z-40 grid size-16 place-items-center rounded-full bg-secondary/5 outline-none sm:bottom-7 sm:inset-e-7 sm:size-20",
         "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className,
       )}
@@ -48,7 +48,7 @@ export function FloatingWhatsApp({
         <>
           <motion.span
             aria-hidden="true"
-            className="absolute inset-0 rounded-full bg-secondary/15"
+            className="absolute inset-0 z-0 rounded-full bg-secondary/15"
             animate={{
               scale: [1, 1.28, 1],
               opacity: [0.7, 0, 0.7],
@@ -62,7 +62,7 @@ export function FloatingWhatsApp({
 
           <motion.span
             aria-hidden="true"
-            className="absolute inset-2 rounded-full bg-secondary/10 sm:inset-3"
+            className="absolute inset-2 z-0 rounded-full bg-green-200 sm:inset-3"
             animate={{
               scale: [1, 1.18, 1],
               opacity: [0.7, 0.2, 0.7],
@@ -77,9 +77,13 @@ export function FloatingWhatsApp({
         </>
       ) : null}
 
+      <span className="relative z-10 grid size-12 place-items-center rounded-full bg-green-500 text-secondary-foreground shadow-md transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:bg-orange-normal-hover sm:size-14">
+        <FaWhatsapp className="size-7 sm:size-8" aria-hidden="true" />
+      </span>
+
       <motion.span
         aria-hidden="true"
-        className="absolute -right-0.5 top-1.5 size-4 rounded-full border-2 border-background bg-secondary sm:right-1 sm:top-2 sm:size-5"
+        className="absolute end-1.5 top-2 z-20 size-4 rounded-full border-2 border-background bg-green-500 sm:end-3 sm:top-2 sm:size-4"
         animate={
           shouldReduceMotion
             ? undefined
@@ -93,10 +97,6 @@ export function FloatingWhatsApp({
           ease: "easeInOut",
         }}
       />
-
-      <span className="relative grid size-12 place-items-center rounded-full bg-secondary text-secondary-foreground shadow-md transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-105 group-hover:bg-orange-normal-hover sm:size-14">
-        <FaWhatsapp className="size-7 sm:size-8" aria-hidden="true" />
-      </span>
     </motion.a>
   );
 }
