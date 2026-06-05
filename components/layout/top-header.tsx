@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
-import { Phone, X } from "lucide-react";
+import { Phone, } from "lucide-react";
 import { CiLinkedin } from "react-icons/ci";
 import { FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import { SlSocialInstagram } from "react-icons/sl";

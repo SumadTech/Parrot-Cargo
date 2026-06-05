@@ -66,7 +66,7 @@ export function HowItWorksSection() {
             <div className="absolute bottom-8 inset-s-7 top-8 w-px bg-primary" />
 
             <div className="grid gap-8">
-              {processSteps.map(({ key, number, Icon }, index) => (
+              {processSteps.map(({ key, number, Icon }) => (
                 <article
                   key={key}
                   className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] gap-4">

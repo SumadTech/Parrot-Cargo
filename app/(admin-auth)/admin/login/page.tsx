@@ -57,6 +57,7 @@ export default function AdminLoginPage() {
       if (!prev[key]) return prev;
 
       const { [key]: _removed, ...rest } = prev;
+      console.log(_removed)
       return rest;
     });
 

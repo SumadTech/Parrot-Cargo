@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, LogOut, Newspaper, PlusCircle } from "lucide-react";
+import { LayoutDashboard, LogOut, Newspaper } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
