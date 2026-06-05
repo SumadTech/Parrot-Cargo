@@ -95,6 +95,7 @@
 
   --primary: #04457f;
   --primary-foreground: #ffffff;
+  --text-foreground: #ffffff;
 
   --secondary: #f6660d;
   --secondary-foreground: #ffffff;
@@ -164,6 +165,7 @@
 
   --primary: #5ea8e6;
   --primary-foreground: #06111d;
+  --text-foreground: #ffffff;
 
   --secondary: #ff8a3d;
   --secondary-foreground: #170a02;
@@ -327,4 +329,113 @@
   .safe-x {
     @apply w-full max-w-full min-w-0 overflow-x-hidden;
   }
+}
+
+.blog-editor-content .ProseMirror,
+.prose {
+  color: var(--body);
+}
+
+.blog-editor-content .ProseMirror > * + * {
+  margin-top: 0.85rem;
+}
+
+.blog-editor-content .ProseMirror h1,
+.prose h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.blog-editor-content .ProseMirror h2,
+.prose h2 {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.blog-editor-content .ProseMirror h3,
+.prose h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.blog-editor-content .ProseMirror h4,
+.prose h4 {
+  font-size: 1.125rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.blog-editor-content .ProseMirror p,
+.prose p {
+  color: var(--body);
+}
+
+.blog-editor-content .ProseMirror ul,
+.prose ul {
+  list-style-type: disc;
+  padding-inline-start: 1.5rem;
+}
+
+.blog-editor-content .ProseMirror ol,
+.prose ol {
+  list-style-type: decimal;
+  padding-inline-start: 1.5rem;
+}
+
+.blog-editor-content .ProseMirror blockquote,
+.prose blockquote {
+  border-inline-start: 4px solid var(--secondary);
+  padding: 0.75rem 1rem;
+  background: var(--secondary-background);
+  color: var(--body);
+}
+
+.blog-editor-content .ProseMirror pre,
+.prose pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  background: var(--heading);
+  padding: 1rem;
+  color: var(--background);
+}
+
+.blog-editor-content .ProseMirror pre code,
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.blog-editor-content .ProseMirror code,
+.prose code {
+  border-radius: 0.375rem;
+  background: var(--secondary-background);
+  padding: 0.15rem 0.35rem;
+  color: var(--heading);
+}
+
+.blog-editor-content .ProseMirror img,
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--stroke);
+}
+
+.blog-editor-content .ProseMirror a,
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.blog-editor-content .ProseMirror:focus {
+  outline: none;
 }
