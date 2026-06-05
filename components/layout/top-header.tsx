@@ -19,7 +19,7 @@ export function TopHeader({ isScrolled }: TopHeaderProps) {
           : "border-white/20 bg-transparent text-white/85",
       )}>
       <div className="container-page flex h-14 items-center justify-between">
-        <div className="flex min-w-0 items-center gap-2 text-caption-1">
+        <div className="flex min-w-0 items-center gap-2 text-caption-2">
           <Phone className="size-4 shrink-0" />
           <span className="truncate">
             Somalia Desk: {siteConfig.contact.somaliaDesk}
