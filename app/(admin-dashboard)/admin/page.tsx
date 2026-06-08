@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Eye, FileText, Newspaper, Send } from "lucide-react";
+import { Archive, Eye, FileText, Newspaper, Send } from "lucide-react";
 
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { StatCard } from "@/components/admin/stat-card";
@@ -11,13 +11,14 @@ export default async function AdminDashboardPage() {
   const total = blogs.length;
   const published = blogs.filter((blog) => blog.status === "published").length;
   const drafts = blogs.filter((blog) => blog.status === "draft").length;
+  const archived = blogs.filter((blog) => blog.status === "archived").length;
   const totalViews = blogs.reduce((sum, blog) => sum + blog.views, 0);
 
   return (
     <div className="space-y-8">
       <AdminPageHeader
         title="Dashboard"
-        description="Manage Parrot Cargo blog content, publishing status, drafts, views, and public articles."
+        description="Manage Parrot Cargo blog content, publishing status, drafts, archived articles, views, and public articles."
         action={
           <Link
             href="/admin/blogs/new"
@@ -28,7 +29,7 @@ export default async function AdminDashboardPage() {
         }
       />
 
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
         <StatCard
           label="Total Blogs"
           value={total}
@@ -45,6 +46,12 @@ export default async function AdminDashboardPage() {
           label="Drafts"
           value={drafts}
           icon={<FileText className="size-5" />}
+        />
+
+        <StatCard
+          label="Archived"
+          value={archived}
+          icon={<Archive className="size-5" />}
         />
 
         <StatCard

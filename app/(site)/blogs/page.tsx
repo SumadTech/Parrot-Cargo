@@ -6,15 +6,12 @@ import { BlogCategoryFilter } from "@/components/blog/blog-category-filter";
 import { Container } from "@/components/common/container";
 import { PageHero } from "@/components/sections/hero/page-hero";
 import { CtaSection } from "@/components/sections/shared/cta-section";
-import {
-  getPublishedBlogCategories,
-  getPublishedBlogs,
-} from "@/lib/blog";
+import { getPublishedBlogCategories, getPublishedBlogs } from "@/lib/blog";
 import heroImage from "@/public/images/hero/hero-air-cargo.png";
 
 type BlogsPageProps = {
   searchParams: Promise<{
-    category?: string;
+    category?: string | string[];
   }>;
 };
 
@@ -49,11 +46,15 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
     getPublishedBlogCategories(),
   ]);
 
+  const selectedCategories = Array.isArray(category)
+    ? category
+    : category
+      ? [category]
+      : [];
+
   const categories = [
     "All Articles",
-    ...Array.from(
-      new Set([...defaultFilterCategories, ...databaseCategories]),
-    ),
+    ...Array.from(new Set([...defaultFilterCategories, ...databaseCategories])),
   ];
 
   return (
@@ -74,9 +75,18 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
         ]}
       />
 
-      <section className="bg-background py-12 sm:py-16 lg:py-20">
+      <section className="bg-background py-8 sm:py-12 lg:py-12">
         <Container>
           <BlogCategoryFilter categories={categories} />
+
+          {selectedCategories.length ? (
+            <p className="mt-4 text-caption-1 text-body">
+              Showing articles from{" "}
+              <span className="font-semibold text-heading">
+                {selectedCategories.join(", ")}
+              </span>
+            </p>
+          ) : null}
 
           {blogs.length ? (
             <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -90,7 +100,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
                 No articles found
               </h2>
               <p className="mt-2 text-caption-1 text-body">
-                There are no published articles in this category yet.
+                There are no published articles in the selected categories yet.
               </p>
             </div>
           )}

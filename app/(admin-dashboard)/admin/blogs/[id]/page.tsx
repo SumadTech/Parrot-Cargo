@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
-import { BlogStatusBadge } from "@/components/blog/blog-status-badge";
 import { BlogContent } from "@/components/blog/blog-content";
+import { BlogDeleteButton } from "@/components/blog/blog-delete-button";
+import { BlogStatusBadge } from "@/components/blog/blog-status-badge";
 import { getBlogById } from "@/lib/blog";
 
 type AdminBlogDetailsPageProps = {
@@ -23,18 +25,25 @@ export default async function AdminBlogDetailsPage({
 
   return (
     <div className="space-y-8">
-      <AdminPageHeader
-        title={blog.title}
-        description={blog.excerpt}
-        action={
+      <div className="space-y-4">
+        <nav className="flex flex-wrap items-center gap-2 text-caption-2 text-body">
+          <Link
+            href="/admin/blogs"
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-sm border border-stroke bg-card px-4 text-caption-1 font-semibold text-heading transition-colors hover:bg-secondary-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-auto">
+            Back to list
+          </Link>
+
           <Link
             href={`/admin/blogs/${blog._id}/edit`}
-            className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-primary px-5 text-caption-1 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-auto"
-          >
-            Edit Blog
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-sm bg-primary px-4 text-caption-1 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:w-auto">
+            Edit
           </Link>
-        }
-      />
+
+          <BlogDeleteButton blogId={blog._id ?? ""} />
+        </nav>
+
+        <AdminPageHeader title={blog.title} description={blog.excerpt} />
+      </div>
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
         <article className="min-w-0 rounded-sm border border-stroke bg-card p-4 sm:p-6">
@@ -91,8 +100,7 @@ export default async function AdminBlogDetailsPage({
                 blog.categories.map((category) => (
                   <span
                     key={category}
-                    className="rounded-full bg-secondary-background px-3 py-1.5 text-caption-2 font-semibold text-heading"
-                  >
+                    className="rounded-full bg-secondary-background px-3 py-1.5 text-caption-2 font-semibold text-heading">
                     {category}
                   </span>
                 ))
@@ -110,8 +118,7 @@ export default async function AdminBlogDetailsPage({
                 blog.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-secondary-background px-3 py-1.5 text-caption-2 font-semibold text-heading"
-                  >
+                    className="rounded-full bg-secondary-background px-3 py-1.5 text-caption-2 font-semibold text-heading">
                     {tag}
                   </span>
                 ))

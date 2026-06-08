@@ -20,22 +20,22 @@ export function ServicesPreviewSection() {
   const isRtl = locale === "ar";
 
   const scrollToIndex = useCallback((nextIndex: number) => {
-  const slider = sliderRef.current;
+    const slider = sliderRef.current;
 
-  if (!slider) return;
+    if (!slider) return;
 
-  const slides = Array.from(slider.children);
-  const slide = slides[nextIndex] as HTMLElement | undefined;
+    const slides = Array.from(slider.children);
+    const slide = slides[nextIndex] as HTMLElement | undefined;
 
-  if (!slide) return;
+    if (!slide) return;
 
-  activeIndexRef.current = nextIndex;
+    activeIndexRef.current = nextIndex;
 
-  slider.scrollTo({
-    left: slide.offsetLeft,
-    behavior: "smooth",
-  });
-}, []);
+    slider.scrollTo({
+      left: slide.offsetLeft,
+      behavior: "smooth",
+    });
+  }, []);
 
   const scrollSlider = useCallback(
     (direction: "previous" | "next") => {
@@ -85,9 +85,14 @@ export function ServicesPreviewSection() {
         </MotionWrapper>
 
         <MotionWrapper delay={0.12} className="mt-10">
-          <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-background via-transparent to-transparent sm:w-16" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-background to-transparent sm:w-16" />
+          <div className="relative overflow-hidden">
+            {/* <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-background via-background/70 to-transparent sm:w-28" />
+
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-background via-background/70 to-transparent sm:w-28" /> */}
+
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-background via-background/55 to-transparent sm:w-16" />
+
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-background via-background/55 to-transparent sm:w-16" />
 
             <div
               ref={sliderRef}

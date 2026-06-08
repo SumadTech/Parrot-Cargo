@@ -1,4 +1,7 @@
-import { Breadcrumbs, type BreadcrumbItem } from "@/components/common/breadcrumbs";
+import {
+  Breadcrumbs,
+  type BreadcrumbItem,
+} from "@/components/common/breadcrumbs";
 import { Container } from "@/components/common/container";
 import { cn } from "@/lib/utils";
 import Image, { type StaticImageData } from "next/image";
@@ -41,19 +44,18 @@ export function PageHero({
           className={cn(
             "relative z-10 flex min-h-85 flex-col justify-center pt-25 sm:min-h-100 sm:pt-20 lg:min-h-115 lg:pt-18",
             isLeft ? "items-start text-start" : "items-center text-center",
-          )}
-        >
-            <Breadcrumbs items={breadcrumbs} />
+          )}>
+            {isLeft && <Breadcrumbs items={breadcrumbs} />}
           <div className={cn(isLeft ? "max-w-6xl" : "mx-auto max-w-6xl")}>
             <h1
               className={cn(
-                "mt-5 text-heading-2 text-primary-foreground sm:text-heading-1",
+                "text-heading-2 text-primary-foreground sm:text-heading-1",
                 isLeft && "max-w-4xl",
                 titleClassName,
-              )}
-            >
+              )}>
               {title}
             </h1>
+            {!isLeft && <Breadcrumbs items={breadcrumbs} />}
 
             {children ? <div className="mt-5">{children}</div> : null}
           </div>

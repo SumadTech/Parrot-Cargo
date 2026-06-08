@@ -1,16 +1,48 @@
 import Link from "next/link";
-import { AdminPageHeader } from "@/components/admin/admin-page-header";
-import { BlogTable } from "@/components/blog/blog-table";
-import { getAdminBlogs } from "@/lib/blog";
 
-export default async function AdminBlogsPage() {
-  const blogs = await getAdminBlogs();
+import { AdminPageHeader } from "@/components/admin/admin-page-header";
+import { BlogAdminToolbar } from "@/components/blog/blog-admin-toolbar";
+import { BlogTable } from "@/components/blog/blog-table";
+import { getAdminBlogCategories, getAdminBlogs } from "@/lib/blog";
+import type { BlogStatus } from "@/types/blog";
+
+type AdminBlogsPageProps = {
+  searchParams: Promise<{
+    status?: string;
+    category?: string;
+    q?: string;
+  }>;
+};
+
+const blogStatuses: BlogStatus[] = ["draft", "published", "archived"];
+
+function getValidStatus(status?: string): BlogStatus | undefined {
+  if (!status) return undefined;
+
+  return blogStatuses.includes(status as BlogStatus)
+    ? (status as BlogStatus)
+    : undefined;
+}
+
+export default async function AdminBlogsPage({
+  searchParams,
+}: AdminBlogsPageProps) {
+  const params = await searchParams;
+
+  const selectedStatus = getValidStatus(params.status);
+  const selectedCategory = params.category;
+  const search = params.q?.trim();
+
+  const [blogs, categories] = await Promise.all([
+    getAdminBlogs(selectedStatus, selectedCategory, search),
+    getAdminBlogCategories(),
+  ]);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <AdminPageHeader
         title="Blogs"
-        description="View, edit, publish, draft, and archive blog articles."
+        description="View, publish, draft, and archive blog articles."
         action={
           <Link
             href="/admin/blogs/new"
@@ -19,6 +51,13 @@ export default async function AdminBlogsPage() {
             New Blog
           </Link>
         }
+      />
+
+      <BlogAdminToolbar
+        categories={categories}
+        selectedStatus={selectedStatus}
+        selectedCategory={selectedCategory}
+        search={search}
       />
 
       <BlogTable blogs={blogs} />

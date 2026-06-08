@@ -3,6 +3,16 @@ import { NextResponse } from "next/server";
 import { createBlog, getAdminBlogs } from "@/lib/blog";
 import type { BlogInput, BlogStatus } from "@/types/blog";
 
+const blogStatuses: BlogStatus[] = ["draft", "published", "archived"];
+
+function validateBlogStatus(status: string | null): BlogStatus | undefined {
+  if (!status) return undefined;
+
+  return blogStatuses.includes(status as BlogStatus)
+    ? (status as BlogStatus)
+    : undefined;
+}
+
 function validateBlogInput(body: BlogInput) {
   const title = body.title?.trim();
   const excerpt = body.excerpt?.trim();
@@ -34,9 +44,12 @@ function validateBlogInput(body: BlogInput) {
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const status = searchParams.get("status") as BlogStatus | null;
 
-  const blogs = await getAdminBlogs(status ?? undefined);
+  const status = validateBlogStatus(searchParams.get("status"));
+  const category = searchParams.get("category") ?? undefined;
+  const search = searchParams.get("q") ?? undefined;
+
+  const blogs = await getAdminBlogs(status, category, search);
 
   return NextResponse.json({ blogs });
 }
@@ -47,10 +60,7 @@ export async function POST(request: Request) {
     const validationError = validateBlogInput(body);
 
     if (validationError) {
-      return NextResponse.json(
-        { message: validationError },
-        { status: 400 },
-      );
+      return NextResponse.json({ message: validationError }, { status: 400 });
     }
 
     const blog = await createBlog(body);

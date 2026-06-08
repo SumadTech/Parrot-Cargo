@@ -13,9 +13,9 @@ export function TopHeader({ isScrolled }: TopHeaderProps) {
   return (
     <div
       className={cn(
-        "hidden border-b transition-colors duration-300 lg:block",
+        "hidden border-b  transition-colors duration-300 lg:block",
         isScrolled
-          ? "border-border bg-surface text-body"
+          ? "border-border bg-surface text-body "
           : "border-white/20 bg-transparent text-white/85",
       )}>
       <div className="container-page flex h-14 items-center justify-between">

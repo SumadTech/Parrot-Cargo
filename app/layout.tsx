@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
-import { getLocale, getMessages } from "next-intl/server";
 import { AppProviders } from "@/components/providers/app-providers";
+import type { Metadata } from "next";
+import { getLocale, getMessages } from "next-intl/server";
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -40,8 +40,7 @@ export default async function RootLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${inter.variable} ${roboto.variable}`}
-    >
+      className={`${inter.variable} ${roboto.variable}`}>
       <body suppressHydrationWarning>
         <AppProviders locale={locale} messages={messages}>
           {children}

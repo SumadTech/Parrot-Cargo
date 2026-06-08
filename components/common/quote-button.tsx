@@ -15,7 +15,7 @@ const variantClasses = {
   light:
     "bg-card text-heading hover:bg-primary hover:text-primary-foreground",
   primary:
-    "bg-primary text-primary-foreground hover:bg-card hover:text-heading",
+    "bg-primary text-primary-foreground hover:bg-secondary hover:text-heading",
   outline:
     "border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground",
   ghost:
@@ -26,7 +26,7 @@ const iconClasses = {
   light:
     "bg-primary text-primary-foreground group-hover:bg-primary-foreground group-hover:text-primary",
   primary:
-    "bg-primary-foreground text-foreground group-hover:bg-primary group-hover:text-primary-foreground",
+    "bg-primary-foreground text-foreground group-hover:bg-card group-hover:text-primary",
   outline:
     "bg-primary text-primary-foreground group-hover:bg-primary-foreground group-hover:text-primary",
   ghost:

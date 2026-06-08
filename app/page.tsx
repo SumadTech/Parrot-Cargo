@@ -10,6 +10,7 @@ import { HomeHero } from "@/components/sections/hero/home-hero";
 import { CtaSection } from "@/components/sections/shared/cta-section";
 import { SiteHeader } from "@/components/layout/site-header";
 import { Footer } from "@/components/layout/footer";
+import { FloatingWhatsApp } from "@/components/common/floating-whatsapp";
 
 export default function Home() {
   return (
@@ -25,7 +26,9 @@ export default function Home() {
       <StatsSection />
       <InsightsSection />
       <CtaSection />
+      <FloatingWhatsApp />
       <Footer />
+
     </main>
   );
 }

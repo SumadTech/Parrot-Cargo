@@ -8,29 +8,47 @@ type BlogCategoryFilterProps = {
   categories: string[];
 };
 
+function buildCategoryHref(selectedCategories: string[], category: string) {
+  const isAll = category === "All Articles";
+
+  if (isAll) {
+    return "/blogs";
+  }
+
+  const params = new URLSearchParams();
+
+  const nextCategories = selectedCategories.includes(category)
+    ? selectedCategories.filter((item) => item !== category)
+    : [...selectedCategories, category];
+
+  nextCategories.forEach((item) => {
+    params.append("category", item);
+  });
+
+  const query = params.toString();
+
+  return query ? `/blogs?${query}` : "/blogs";
+}
+
 export function BlogCategoryFilter({ categories }: BlogCategoryFilterProps) {
   const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get("category");
+  const selectedCategories = searchParams.getAll("category");
 
   return (
     <div className="flex flex-wrap gap-3">
       {categories.map((category) => {
         const isAll = category === "All Articles";
         const isActive = isAll
-          ? !selectedCategory
-          : selectedCategory === category;
-
-        const href = isAll
-          ? "/blogs"
-          : `/blogs?category=${encodeURIComponent(category)}`;
+          ? selectedCategories.length === 0
+          : selectedCategories.includes(category);
 
         return (
           <Link
             key={category}
-            href={href}
+            href={buildCategoryHref(selectedCategories, category)}
             scroll={false}
             className={cn(
-              "rounded-full border px-5 py-2 text-caption-1 font-medium transition-colors",
+              "rounded-sm border px-5 py-2 text-caption-1 font-medium transition-colors",
               isActive
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-primary bg-background text-primary hover:bg-accent",

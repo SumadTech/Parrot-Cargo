@@ -106,8 +106,8 @@ export function AboutTeamSection() {
                   </p>
                 </div>
 
-                <div className="absolute inset-0 flex flex-col justify-end bg-primary/92 p-6 text-primary-foreground opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:opacity-100 sm:p-7">
-                  <div className="translate-y-8 transition-transform duration-500 group-hover:translate-y-0">
+                <div className="absolute inset-0 flex flex-col bg-primary/92 p-6 text-primary-foreground opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:opacity-100 sm:p-7">
+                  <div className="translate-y-6 transition-transform duration-500 group-hover:translate-y-0">
                     <h3 className="text-body-2 font-semibold text-primary-foreground">
                       {t(`members.${member.key}.name`)}
                     </h3>
@@ -115,29 +115,29 @@ export function AboutTeamSection() {
                     <p className="mt-1 text-caption-2 text-primary-foreground/80">
                       {t(`members.${member.key}.role`)}
                     </p>
+                  </div>
 
-                    <p className="mt-6 max-w-sm text-caption-1 text-primary-foreground/85">
-                      {t(`members.${member.key}.bio`)}
-                    </p>
+                  <p className="mt-10 max-w-sm text-caption-1 text-primary-foreground/85 sm:mt-12">
+                    {t(`members.${member.key}.bio`)}
+                  </p>
 
-                    <div className="mt-8 flex items-center gap-3">
-                      {socialIcons.map(({ key, Icon }, socialIndex) => (
-                        <a
-                          key={key}
-                          href={member.socials[key]}
-                          aria-label={t(`socials.${key}`, {
-                            name: t(`members.${member.key}.name`),
-                          })}
-                          className={
-                            socialIndex === 0
-                              ? "grid size-9 place-items-center rounded-full bg-primary-foreground text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-                              : "grid size-9 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-                          }
-                        >
-                          <Icon className="size-4" aria-hidden="true" />
-                        </a>
-                      ))}
-                    </div>
+                  <div className="mt-auto flex items-center gap-3">
+                    {socialIcons.map(({ key, Icon }, socialIndex) => (
+                      <a
+                        key={key}
+                        href={member.socials[key]}
+                        aria-label={t(`socials.${key}`, {
+                          name: t(`members.${member.key}.name`),
+                        })}
+                        className={
+                          socialIndex === 0
+                            ? "grid size-9 place-items-center rounded-full bg-primary-foreground text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                            : "grid size-9 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:bg-primary-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                        }
+                      >
+                        <Icon className="size-4" aria-hidden="true" />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </article>

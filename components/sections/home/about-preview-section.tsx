@@ -1,15 +1,14 @@
 import { Container } from "@/components/common/container";
 import { MotionWrapper } from "@/components/common/motion-wrapper";
 import { Section } from "@/components/common/section";
-import heroAirCargo from "@/public/images/home/home-previ (2).png";
 import heroSeaCargo from "@/public/images/home/home-previ (1).png";
+import heroAirCargo from "@/public/images/home/home-previ (2).png";
 import heroWarehouse from "@/public/images/home/home-previ (3).png";
-import { ArrowUpRight } from "lucide-react";
 import { HiOutlineCheckBadge } from "react-icons/hi2";
 
+import { QuoteButton } from "@/components/common/quote-button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 
 const featureKeys = [
   "fastCustoms",
@@ -53,14 +52,12 @@ export function AboutPreviewSection() {
               </ul>
 
               <div className="mt-4">
-                <Link
-                  href="/about"
-                  className="inline-flex min-h-11 w-full items-center justify-center gap-3 rounded-full bg-primary pl-3 pr-2 text-caption-2 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:w-auto">
-                  {t("cta")}
-                  <span className="grid size-7 place-items-center rounded-full bg-primary-foreground text-primary">
-                    <ArrowUpRight className="size-4" />
-                  </span>
-                </Link>
+                 <QuoteButton
+              href="/contact"
+              variant={"primary"}
+            >
+             {t("cta")}
+            </QuoteButton>
               </div>
             </div>
           </MotionWrapper>

@@ -102,8 +102,7 @@ export function ContactSection() {
                 {contactOffices.map((office) => (
                   <article
                     key={office.key}
-                    className="rounded-sm border border-stroke bg-surface-secondary p-5"
-                  >
+                    className="rounded-sm border border-stroke bg-surface-secondary p-5">
                     <h4 className="text-body-2 font-semibold text-heading">
                       {t(`offices.items.${office.key}.title`)}
                     </h4>
@@ -112,8 +111,7 @@ export function ContactSection() {
                       {office.details.map(({ key, Icon }) => (
                         <div
                           key={key}
-                          className="flex min-w-0 items-center gap-3 text-caption-1 text-heading"
-                        >
+                          className="flex min-w-0 items-center gap-3 text-caption-1 text-heading">
                           <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
                             <Icon className="size-5" aria-hidden="true" />
                           </span>
@@ -173,8 +171,7 @@ export function ContactSection() {
                       name="service"
                       required
                       defaultValue=""
-                      className="min-h-12 w-full appearance-none rounded-md border border-primary bg-background px-4 pe-10 text-caption-1 text-heading outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    >
+                      className="min-h-12 w-full appearance-none rounded-md border border-primary bg-background px-4 pe-10 text-caption-1 text-heading outline-none focus-visible:ring-2 focus-visible:ring-ring">
                       <option value="" disabled>
                         {t("form.fields.service")}
                       </option>
@@ -182,8 +179,7 @@ export function ContactSection() {
                       {serviceOptions.map((option) => (
                         <option
                           key={option}
-                          value={t(`form.services.${option}`)}
-                        >
+                          value={t(`form.services.${option}`)}>
                           {t(`form.services.${option}`)}
                         </option>
                       ))}
@@ -214,8 +210,7 @@ export function ContactSection() {
                           ? "text-secondary"
                           : "text-body",
                     )}
-                    role={feedback ? "status" : undefined}
-                  >
+                    role={feedback ? "status" : undefined}>
                     {feedback}
                   </p>
 
@@ -224,8 +219,7 @@ export function ContactSection() {
                     disabled={formState === "loading"}
                     variant="primary"
                     iconSize="sm"
-                    className="w-full sm:w-auto"
-                  >
+                    className="w-full sm:w-auto">
                     {formState === "loading"
                       ? t("form.sending")
                       : t("form.submit")}
@@ -249,8 +243,7 @@ export function ContactSection() {
                     href="https://wa.me/252613212221"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-secondary px-4 text-caption-2 font-semibold text-secondary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  >
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-secondary px-4 text-caption-2 font-semibold text-secondary-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                     <FaWhatsapp className="size-5" aria-hidden="true" />
                     {t("whatsapp.cta")}
                   </a>
@@ -290,42 +283,38 @@ export function ContactSection() {
                       activeMap === location.key
                         ? "bg-primary text-primary-foreground"
                         : "text-heading hover:bg-card",
-                    )}
-                  >
+                    )}>
                     {t(`maps.items.${location.key}.tab`)}
                   </button>
                 ))}
               </div>
             </div>
-<div className="relative">
-
-            <div className="mt-5 min-h-80 overflow-hidden rounded-md border border-stroke bg-surface-secondary sm:min-h-100 lg:min-h-112">
-              <iframe
-                key={currentLocation.key}
-                src={currentLocation.mapSrc}
-                title={t(`maps.items.${currentLocation.key}.title`)}
-                className="absolute inset-0 h-full w-full"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="relative">
+              <div className="mt-5 min-h-80 overflow-hidden rounded-md border border-stroke bg-surface-secondary sm:min-h-100 lg:min-h-112">
+                <iframe
+                  key={currentLocation.key}
+                  src={currentLocation.mapSrc}
+                  title={t(`maps.items.${currentLocation.key}.title`)}
+                  className="absolute inset-0 h-full w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="absolute right-14 bottom-5.5 flex  justify-end">
+                <a
+                  href={
+                    activeMap === "bakaro"
+                      ? "https://www.google.com/maps/search/?api=1&query=Bakara+Market+Mogadishu+Somalia"
+                      : "https://www.google.com/maps/search/?api=1&query=Igsyidka+Dabka+Mogadishu+Somalia"
+                  }
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-3 rounded-md bg-primary px-5 text-caption-2 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                  {t("maps.directions")}
+                  <ArrowUpRight className="size-4" aria-hidden="true" />
+                </a>
+              </div>
             </div>
-            <div className="absolute right-14 bottom-3 flex justify-end">
-              <a
-                href={
-                  activeMap === "bakaro"
-                    ? "https://www.google.com/maps/search/?api=1&query=Bakara+Market+Mogadishu+Somalia"
-                    : "https://www.google.com/maps/search/?api=1&query=Igsyidka+Dabka+Mogadishu+Somalia"
-                }
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex min-h-11 items-center justify-center gap-3 rounded-md bg-primary px-5 text-caption-2 font-semibold text-primary-foreground transition-colors hover:bg-blue-normal-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              >
-                {t("maps.directions")}
-                <ArrowUpRight className="size-4" aria-hidden="true" />
-              </a>
-            </div>
-</div>
-
           </div>
         </MotionWrapper>
       </Container>

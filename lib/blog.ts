@@ -19,11 +19,7 @@ function estimateReadingTime(html: string) {
 
 function normalizeList(value?: string[]) {
   return Array.from(
-    new Set(
-      (value ?? [])
-        .map((item) => item.trim())
-        .filter(Boolean),
-    ),
+    new Set((value ?? []).map((item) => item.trim()).filter(Boolean)),
   );
 }
 
@@ -35,6 +31,18 @@ function normalizeCategory(value?: string | null) {
   }
 
   return category;
+}
+
+function normalizeCategories(value?: string | string[] | null) {
+  const categories = Array.isArray(value) ? value : value ? [value] : [];
+
+  return Array.from(
+    new Set(
+      categories
+        .map((category) => normalizeCategory(category))
+        .filter(Boolean) as string[],
+    ),
+  );
 }
 
 function toIsoDate(value: unknown): string | null {
@@ -61,11 +69,7 @@ function mapBlog(doc: BlogHydratedDocument): BlogDocument {
   const raw = doc.toObject<BlogRawDocument>();
 
   const categories = normalizeList(
-    raw.categories?.length
-      ? raw.categories
-      : raw.category
-        ? [raw.category]
-        : [],
+    raw.categories?.length ? raw.categories : raw.category ? [raw.category] : [],
   );
 
   return {
@@ -104,6 +108,7 @@ function mapBlog(doc: BlogHydratedDocument): BlogDocument {
 export function revalidateBlogCache(slug?: string) {
   revalidateTag(BLOGS_CACHE_TAG, "max");
   revalidatePath("/blogs");
+  revalidatePath("/admin/blogs");
 
   if (slug) {
     revalidatePath(`/blogs/${slug}`);
@@ -115,28 +120,76 @@ export async function ensureBlogIndexes() {
   await Blog.syncIndexes();
 }
 
-export async function getAdminBlogs(status?: BlogStatus) {
+export async function getAdminBlogs(
+  status?: BlogStatus,
+  category?: string,
+  search?: string,
+) {
   await connectDB();
 
-  const query = status ? { status } : {};
+  const selectedCategory = normalizeCategory(category);
+  const selectedSearch = search?.trim();
+
+  const query = {
+    ...(status ? { status } : {}),
+    ...(selectedCategory
+      ? {
+          $or: [{ category: selectedCategory }, { categories: selectedCategory }],
+        }
+      : {}),
+    ...(selectedSearch
+      ? {
+          $and: [
+            {
+              $or: [
+                { title: { $regex: selectedSearch, $options: "i" } },
+                { excerpt: { $regex: selectedSearch, $options: "i" } },
+                { category: { $regex: selectedSearch, $options: "i" } },
+                { categories: { $regex: selectedSearch, $options: "i" } },
+                { tags: { $regex: selectedSearch, $options: "i" } },
+              ],
+            },
+          ],
+        }
+      : {}),
+  };
 
   const docs = await Blog.find(query).sort({ updatedAt: -1 });
 
   return docs.map(mapBlog);
 }
 
+export async function getAdminBlogCategories() {
+  await connectDB();
+
+  const docs = await Blog.find({}).select("category categories");
+
+  const categories = docs.flatMap((doc) => {
+    const blog = mapBlog(doc);
+    return blog.categories.length
+      ? blog.categories
+      : blog.category
+        ? [blog.category]
+        : [];
+  });
+
+  return Array.from(new Set(categories.filter(Boolean))).sort((a, b) =>
+    a.localeCompare(b),
+  );
+}
+
 export const getPublishedBlogs = unstable_cache(
-  async (category?: string) => {
+  async (category?: string | string[]) => {
     await connectDB();
 
-    const selectedCategory = normalizeCategory(category);
+    const selectedCategories = normalizeCategories(category);
 
-    const query = selectedCategory
+    const query = selectedCategories.length
       ? {
           status: "published",
           $or: [
-            { category: selectedCategory },
-            { categories: selectedCategory },
+            { category: { $in: selectedCategories } },
+            { categories: { $in: selectedCategories } },
           ],
         }
       : {

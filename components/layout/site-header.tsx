@@ -75,8 +75,8 @@ export function SiteHeader() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={cn(
-          "hidden overflow-hidden transition-all duration-300 lg:block",
-          isScrolled ? "max-h-0 opacity-0" : "max-h-14 opacity-100",
+          "hidden overflow-hidden  transition-all duration-300 lg:block",
+          isScrolled ? "max-h-0 opacity-0 border-0 border-border" : "border-b max-h-14 opacity-100 border-border ",
         )}
       >
         <TopHeader isScrolled={isScrolled} />
@@ -92,7 +92,7 @@ export function SiteHeader() {
       >
         <div
           className={cn(
-            "container-page relative flex items-center justify-between gap-4 transition-all duration-300",
+            "container-page relative flex items-center justify-between gap-4 transition-all duration-300 ",
             isScrolled ? "h-18" : "h-20",
           )}
         >
@@ -106,7 +106,7 @@ export function SiteHeader() {
               className={cn(
                 "h-auto transition-all duration-300",
                 isScrolled
-                  ? "mb-0 w-16 sm:w-20 lg:w-24"
+                  ? "mb-0 w-16 sm:w-20 lg:w-18"
                   : "mb-4 w-18 sm:w-24 lg:w-28",
               )}
             />

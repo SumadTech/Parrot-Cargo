@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { BlogStatusBadge } from "@/components/blog/blog-status-badge";
 import type { BlogDocument } from "@/types/blog";
 
@@ -10,9 +11,11 @@ export function BlogTable({ blogs }: BlogTableProps) {
   if (blogs.length === 0) {
     return (
       <div className="rounded-sm border border-stroke bg-card p-8 text-center">
-        <h2 className="text-body-3 font-semibold text-heading">No blogs yet</h2>
+        <h2 className="text-body-3 font-semibold text-heading">
+          No blogs found
+        </h2>
         <p className="mt-2 text-caption-1 text-body">
-          Create your first article to start building the blog.
+          Try changing the selected filters or create a new article.
         </p>
       </div>
     );
@@ -22,9 +25,10 @@ export function BlogTable({ blogs }: BlogTableProps) {
     <>
       <div className="space-y-3 md:hidden">
         {blogs.map((blog) => (
-          <article
+          <Link
             key={blog._id}
-            className="rounded-sm border border-stroke bg-card p-4"
+            href={`/admin/blogs/${blog._id}`}
+            className="block rounded-sm border border-stroke bg-card p-4 transition-colors hover:bg-secondary-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
@@ -51,27 +55,12 @@ export function BlogTable({ blogs }: BlogTableProps) {
                 {blog.readingTimeMinutes} min read
               </span>
             </div>
-
-            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-              <Link
-                href={`/admin/blogs/${blog._id}`}
-                className="inline-flex min-h-10 w-full items-center justify-center rounded-full border border-stroke bg-card px-4 text-caption-2 font-semibold text-heading sm:w-auto"
-              >
-                View
-              </Link>
-              <Link
-                href={`/admin/blogs/${blog._id}/edit`}
-                className="inline-flex min-h-10 w-full items-center justify-center rounded-full bg-primary px-4 text-caption-2 font-semibold text-primary-foreground sm:w-auto"
-              >
-                Edit
-              </Link>
-            </div>
-          </article>
+          </Link>
         ))}
       </div>
 
       <div className="hidden w-full overflow-x-auto rounded-sm border border-stroke bg-card md:block">
-        <table className="w-full min-w-250 text-start text-caption-1">
+        <table className="w-full min-w-200 text-start text-caption-1">
           <thead className="border-b border-stroke bg-secondary-background text-heading">
             <tr>
               <th className="px-4 py-3 text-start font-semibold">Title</th>
@@ -79,67 +68,68 @@ export function BlogTable({ blogs }: BlogTableProps) {
               <th className="px-4 py-3 text-start font-semibold">Status</th>
               <th className="px-4 py-3 text-start font-semibold">Views</th>
               <th className="px-4 py-3 text-start font-semibold">Updated</th>
-              <th className="px-4 py-3 text-end font-semibold">Actions</th>
             </tr>
           </thead>
 
           <tbody className="divide-y divide-stroke">
-            {blogs.map((blog) => (
-              <tr key={blog._id}>
-                <td className="max-w-sm px-4 py-4">
-                  <p className="truncate font-semibold text-heading">
-                    {blog.title}
-                  </p>
-                  <p className="mt-1 line-clamp-1 text-caption-2 text-body">
-                    {blog.excerpt}
-                  </p>
-                </td>
+            {blogs.map((blog) => {
+              const href = `/admin/blogs/${blog._id}`;
 
-                <td className="max-w-xs px-4 py-4 text-body">
-                  <div className="flex flex-wrap gap-1">
-                    {blog.categories.length ? (
-                      blog.categories.slice(0, 3).map((category) => (
-                        <span
-                          key={category}
-                          className="rounded-full bg-secondary-background px-2 py-1 text-caption-2 text-heading"
-                        >
-                          {category}
-                        </span>
-                      ))
-                    ) : (
-                      <span>Uncategorized</span>
-                    )}
-                  </div>
-                </td>
-
-                <td className="px-4 py-4">
-                  <BlogStatusBadge status={blog.status} />
-                </td>
-
-                <td className="px-4 py-4 text-body">{blog.views}</td>
-
-                <td className="px-4 py-4 text-body">
-                  {new Date(blog.updatedAt).toLocaleDateString()}
-                </td>
-
-                <td className="px-4 py-4">
-                  <div className="flex justify-end gap-2">
-                    <Link
-                      href={`/admin/blogs/${blog._id}`}
-                      className="rounded-full border border-stroke px-4 py-2 text-caption-2 font-semibold text-heading"
-                    >
-                      View
+              return (
+                <tr
+                  key={blog._id}
+                  className="transition-colors hover:bg-secondary-background"
+                >
+                  <td className="max-w-sm p-0">
+                    <Link href={href} className="block px-4 py-4">
+                      <p className="truncate font-semibold text-heading">
+                        {blog.title}
+                      </p>
+                      <p className="mt-1 line-clamp-1 text-caption-2 text-body">
+                        {blog.excerpt}
+                      </p>
                     </Link>
-                    <Link
-                      href={`/admin/blogs/${blog._id}/edit`}
-                      className="rounded-full bg-primary px-4 py-2 text-caption-2 font-semibold text-primary-foreground"
-                    >
-                      Edit
+                  </td>
+
+                  <td className="max-w-xs p-0">
+                    <Link href={href} className="block px-4 py-4">
+                      <div className="flex flex-wrap gap-1">
+                        {blog.categories.length ? (
+                          blog.categories.slice(0, 3).map((category) => (
+                            <span
+                              key={category}
+                              className="rounded-full bg-secondary-background px-2 py-1 text-caption-2 text-heading"
+                            >
+                              {category}
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-body">Uncategorized</span>
+                        )}
+                      </div>
                     </Link>
-                  </div>
-                </td>
-              </tr>
-            ))}
+                  </td>
+
+                  <td className="p-0">
+                    <Link href={href} className="block px-4 py-4">
+                      <BlogStatusBadge status={blog.status} />
+                    </Link>
+                  </td>
+
+                  <td className="p-0">
+                    <Link href={href} className="block px-4 py-4 text-body">
+                      {blog.views}
+                    </Link>
+                  </td>
+
+                  <td className="p-0">
+                    <Link href={href} className="block px-4 py-4 text-body">
+                      {new Date(blog.updatedAt).toLocaleDateString()}
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
