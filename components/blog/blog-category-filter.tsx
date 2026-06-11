@@ -48,7 +48,7 @@ export function BlogCategoryFilter({ categories }: BlogCategoryFilterProps) {
             href={buildCategoryHref(selectedCategories, category)}
             scroll={false}
             className={cn(
-              "rounded-sm border px-5 py-2 text-caption-1 font-medium transition-colors",
+              "rounded-full border px-5 py-2 text-caption-1 font-medium transition-colors",
               isActive
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-primary bg-background text-primary hover:bg-accent",

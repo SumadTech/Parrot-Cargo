@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, LogOut, Newspaper } from "lucide-react";
+import { LayoutDashboard, LogOut, Mail, Newspaper } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,6 +17,16 @@ const adminLinks = [
     href: "/admin/blogs",
     label: "Blogs",
     Icon: Newspaper,
+  },
+  {
+    href: "/admin/newsletter",
+    label: "Newsletter",
+    Icon: Mail,
+  },
+  {
+    href: "/admin/campaigns",
+    label: "Campaigns",
+    Icon: Mail,
   },
 ] as const;
 
@@ -42,7 +52,7 @@ export function AdminSidebar() {
   }
 
   return (
-    <aside className="border-stroke bg-card lg:fixed lg:inset-y-0 lg:start-0 lg:z-40 lg:flex lg:w-[280px] lg:flex-col lg:border-e">
+    <aside className="border-stroke bg-card lg:fixed lg:inset-y-0 lg:inset-s-0 lg:z-40 lg:flex lg:w-70 lg:flex-col lg:border-e">
       <div className="flex items-center justify-between border-b border-stroke px-4 py-4 lg:px-6">
         <Link
           href="/admin"

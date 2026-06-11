@@ -1,7 +1,8 @@
 import { Container } from "@/components/common/container";
+import { NewsletterSubscribeForm } from "@/components/newsletter/newsletter-subscribe-form";
 import { siteConfig } from "@/config/site";
 import logo from "@/public/images/logo.png";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -92,29 +93,11 @@ export function Footer() {
               {t("newsletter.title")}
             </h2>
 
-            <form className="flex w-full flex-col gap-3 sm:flex-row lg:justify-end">
-              <label htmlFor="newsletter-email" className="sr-only">
-                {t("newsletter.emailLabel")}
-              </label>
-
-              <input
-                id="newsletter-email"
-                type="email"
-                placeholder={t("newsletter.placeholder")}
-                className="min-h-12 w-full rounded-full border border-primary-foreground/10 bg-primary-foreground/20 px-5 text-caption-1 text-primary-foreground placeholder:text-primary-foreground/70 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/40 sm:max-w-82.5"
-              />
-
-              <button
-                type="submit"
-                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-card py-1.5 pe-1.5 ps-5 text-caption-2 font-semibold text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-              >
-                {t("newsletter.submit")}
-
-                <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-primary group-hover:text-primary-foreground rtl:group-hover:-translate-x-0.5">
-                  <ArrowUpRight className="size-4" aria-hidden="true" />
-                </span>
-              </button>
-            </form>
+            <NewsletterSubscribeForm
+              emailLabel={t("newsletter.emailLabel")}
+              placeholder={t("newsletter.placeholder")}
+              submitLabel={t("newsletter.submit")}
+            />
           </div>
         </div>
 

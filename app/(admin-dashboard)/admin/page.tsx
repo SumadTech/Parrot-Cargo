@@ -1,12 +1,26 @@
 import Link from "next/link";
-import { Archive, Eye, FileText, Newspaper, Send } from "lucide-react";
+import {
+  Archive,
+  Eye,
+  FileText,
+  Mail,
+  Megaphone,
+  Newspaper,
+  Send,
+  Users,
+} from "lucide-react";
 
 import { AdminPageHeader } from "@/components/admin/admin-page-header";
 import { StatCard } from "@/components/admin/stat-card";
 import { getAdminBlogs } from "@/lib/blog";
+import { getNewsletterCampaigns, getNewsletterStats } from "@/lib/newsletter";
 
 export default async function AdminDashboardPage() {
-  const blogs = await getAdminBlogs();
+  const [blogs, newsletterStats, campaigns] = await Promise.all([
+    getAdminBlogs(),
+    getNewsletterStats(),
+    getNewsletterCampaigns(),
+  ]);
 
   const total = blogs.length;
   const published = blogs.filter((blog) => blog.status === "published").length;
@@ -18,7 +32,7 @@ export default async function AdminDashboardPage() {
     <div className="space-y-8">
       <AdminPageHeader
         title="Dashboard"
-        description="Manage Parrot Cargo blog content, publishing status, drafts, archived articles, views, and public articles."
+        description="Manage Parrot Cargo blog content, newsletter subscribers, campaigns, publishing status, drafts, archived articles, views, and public articles."
         action={
           <Link
             href="/admin/blogs/new"
@@ -29,7 +43,7 @@ export default async function AdminDashboardPage() {
         }
       />
 
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
           label="Total Blogs"
           value={total}
@@ -58,6 +72,24 @@ export default async function AdminDashboardPage() {
           label="Total Views"
           value={totalViews}
           icon={<Eye className="size-5" />}
+        />
+
+        <StatCard
+          label="Newsletter Subscribers"
+          value={newsletterStats.total}
+          icon={<Users className="size-5" />}
+        />
+
+        <StatCard
+          label="Active Subscribers"
+          value={newsletterStats.subscribed}
+          icon={<Mail className="size-5" />}
+        />
+
+        <StatCard
+          label="Campaigns Sent"
+          value={campaigns.length}
+          icon={<Megaphone className="size-5" />}
         />
       </section>
     </div>

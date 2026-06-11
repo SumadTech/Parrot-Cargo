@@ -1,10 +1,9 @@
 import { Container } from "@/components/common/container";
 import { MotionWrapper } from "@/components/common/motion-wrapper";
-import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 
+import { QuoteButton } from "@/components/common/quote-button";
 import ctaImage from "@/public/images/cta.png";
 
 export function CtaSection() {
@@ -36,15 +35,9 @@ export function CtaSection() {
             </p>
 
             <div className="mt-8">
-              <Link
-                href="/contact"
-                className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-card py-1.5 pe-1.5 ps-5 text-caption-2 font-semibold text-primary transition-colors hover:bg-secondary hover:text-secondary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-              >
+              <QuoteButton href="/contact" variant={"primary"}>
                 {t("cta")}
-                <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground transition-colors group-hover:bg-secondary">
-                  <ArrowUpRight className="size-4" aria-hidden="true" />
-                </span>
-              </Link>
+              </QuoteButton>
             </div>
           </div>
         </MotionWrapper>
